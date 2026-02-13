@@ -64,7 +64,13 @@ export default function ServicesPage() {
                   </ul>
 
                   <div className="mt-4 flex flex-wrap items-center gap-4">
-                    <Button href="/contact" variant="primary">
+                    <Button
+                      href={`/services/${service.slug}`}
+                      variant="primary"
+                    >
+                      Learn More
+                    </Button>
+                    <Button href="/contact" variant="outline">
                       Get a Quote
                     </Button>
                     {service.leadTime && (
