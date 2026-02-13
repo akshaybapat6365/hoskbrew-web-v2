@@ -3,21 +3,21 @@ import Image from "next/image";
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-retro-black relative">
+    <div className="min-h-screen bg-retro-void relative">
       <div className="absolute inset-0 bg-[url('/assets/images/HoskBrew_VisualCenter_08012025_Page_004.png')] bg-cover bg-center opacity-10 pointer-events-none" />
 
       <div className="container mx-auto px-4 py-24 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div className="space-y-8">
-            <h1 className="text-5xl md:text-7xl font-retro text-retro-white">
-              START YOUR <span className="text-retro-secondary">QUEST</span>
+            <h1 className="text-5xl md:text-7xl font-retro text-retro-white text-shadow-crt">
+              START YOUR <span className="text-retro-accent">QUEST</span>
             </h1>
             <p className="text-xl font-sans text-retro-white/80 leading-relaxed max-w-lg">
               Whether you need 500 custom cartridges, a new PCB design, or just
               want to chat about 8-bit mappers — we're ready.
             </p>
 
-            <div className="bg-retro-gray/20 p-8 border-l-4 border-retro-accent space-y-4">
+            <div className="bg-retro-gray/20 p-8 border-l-4 border-retro-phosphor space-y-4">
               <h3 className="font-retro text-2xl text-retro-white">
                 HQ LOCATION
               </h3>
@@ -28,14 +28,14 @@ export default function ContactPage() {
                 <br />
                 Retro City, CA 90210
               </p>
-              <p className="font-mono text-retro-accent pt-2">
+              <p className="font-mono text-retro-phosphor pt-2">
                 SIGNAL: hello@hoskbrew.com
               </p>
             </div>
 
             <div className="relative h-64 w-full rounded-lg overflow-hidden border-2 border-retro-gray/50">
               <div className="absolute inset-0 bg-retro-gray/40 flex items-center justify-center">
-                <p className="font-retro text-retro-white/50">
+                <p className="font-retro text-retro-white/50 animate-pulse">
                   MAP MODULE LOADING...
                 </p>
               </div>
