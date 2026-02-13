@@ -1,86 +1,106 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "./ui/Button";
+import { Container } from "./ui/Container";
 import { AssetRegistry } from "@/lib/assets";
-import { GlitchText, Scanline } from "./ui/Effects";
+import {
+  fadeInLeft,
+  fadeInRight,
+  staggerContainer,
+  staggerItem,
+} from "@/lib/motion";
 
 export default function Hero() {
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 200]);
-  const rotate = useTransform(scrollY, [0, 500], [0, 10]);
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-bg">
-      <Scanline />
+    <section className="relative flex min-h-[90vh] items-center overflow-hidden bg-brand-bg pt-20">
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 50% at 70% 40%, rgba(27,143,126,0.08), transparent 60%), radial-gradient(ellipse 60% 40% at 20% 80%, rgba(212,168,67,0.06), transparent 50%)",
+        }}
+      />
 
-      <div className="absolute inset-0 perspective-[1000px] pointer-events-none">
-        <div className="absolute bottom-[-50%] left-[-50%] w-[200%] h-[100%] bg-grid opacity-20 transform rotate-x-[60deg] animate-[scanline_4s_linear_infinite]" />
-      </div>
-
-      <div className="container mx-auto px-4 z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="space-y-8"
-        >
-          <div className="inline-block px-4 py-1 bg-brand-surface/50 border border-brand-text/10 rounded-full">
-            <span className="text-brand-primary font-mono text-xs animate-pulse">
-              ● SYSTEM READY
-            </span>
-          </div>
-
-          <h1 className="text-6xl md:text-8xl font-retro text-brand-text leading-[0.9]">
-            LEVEL <span className="text-brand-highlight">UP</span>
-            <br />
-            YOUR <GlitchText text="RETRO" />
-          </h1>
-
-          <p className="text-xl font-sans text-brand-text/60 max-w-lg leading-relaxed">
-            Premium cartridges, manuals, and manufacturing for the{" "}
-            <span className="text-brand-text font-bold">
-              homebrew revolution
-            </span>
-            .
-          </p>
-
-          <div className="flex gap-4 pt-4">
-            <Button size="lg" variant="cyber">
-              Insert Coin
-            </Button>
-            <Button size="lg" variant="ghost">
-              Read Docs_
-            </Button>
-          </div>
-        </motion.div>
-
-        <motion.div
-          style={{ y, rotate }}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="relative h-[500px] w-full flex items-center justify-center"
-        >
-          <div className="absolute inset-0 bg-brand-highlight/5 blur-[100px] rounded-full animate-pulse" />
+      <Container size="wide">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <motion.div
-            animate={{ y: [0, -30, 0] }}
-            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            className="relative w-full h-full"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="show"
+            className="flex flex-col gap-6"
           >
-            <Image
-              src={AssetRegistry.mascot.color}
-              alt="Hoskbrew Mascot"
-              fill
-              className="object-contain drop-shadow-[0_0_30px_rgba(199,70,52,0.35)]"
-              priority
-            />
-          </motion.div>
-        </motion.div>
-      </div>
+            <motion.span
+              variants={staggerItem}
+              className="text-label text-brand-accent w-fit"
+            >
+              Retro Gaming Hardware & Homebrew
+            </motion.span>
 
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_50%,rgba(0,0,0,0.8)_100%)]" />
+            <motion.h1
+              variants={fadeInLeft}
+              className="text-display text-brand-text"
+            >
+              Your Game.{" "}
+              <span className="text-brand-primary">Real Cartridges.</span>
+            </motion.h1>
+
+            <motion.p variants={staggerItem} className="text-subhead max-w-lg">
+              HoskBrew manufactures premium cartridges, packaging, and manuals
+              for indie developers shipping physical games on NES, SNES, Game
+              Boy, GBA, and Genesis.
+            </motion.p>
+
+            <motion.div
+              variants={staggerItem}
+              className="flex flex-wrap gap-3 pt-2"
+            >
+              <Button href="/products" size="lg" variant="primary">
+                Browse Products
+              </Button>
+              <Button href="/contact" size="lg" variant="outline">
+                Get a Quote
+              </Button>
+            </motion.div>
+
+            <motion.div
+              variants={staggerItem}
+              className="flex items-center gap-6 pt-4 text-sm text-brand-text-muted"
+            >
+              <span className="flex items-center gap-2">
+                <span className="inline-block h-2 w-2 rounded-full bg-brand-success" />
+                Accepting orders
+              </span>
+              <span>NES · SNES · GB · GBA · Genesis</span>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            variants={fadeInRight}
+            initial="hidden"
+            animate="show"
+            className="relative flex items-center justify-center"
+          >
+            <div className="absolute h-[420px] w-[420px] rounded-full bg-brand-primary/5 blur-[80px]" />
+            <motion.div
+              animate={{ y: [0, -16, 0] }}
+              transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+              className="relative h-[380px] w-[380px] sm:h-[440px] sm:w-[440px]"
+            >
+              <Image
+                src={AssetRegistry.mascot.color}
+                alt="HoskBrew octopus mascot"
+                fill
+                className="object-contain drop-shadow-[0_0_40px_rgba(27,143,126,0.25)]"
+                priority
+              />
+            </motion.div>
+          </motion.div>
+        </div>
+      </Container>
+
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_60%,rgba(11,14,17,0.9)_100%)]" />
     </section>
   );
 }

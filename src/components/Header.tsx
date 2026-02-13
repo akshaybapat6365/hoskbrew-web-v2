@@ -55,7 +55,7 @@ export default function Header() {
             </Link>
           ))}
           <Link href="/contact">
-            <Button size="sm" variant="cyber">
+            <Button size="sm" variant="primary">
               Get a Quote
             </Button>
           </Link>
@@ -99,7 +99,7 @@ export default function Header() {
                 className="mt-3"
                 onClick={() => setIsOpen(false)}
               >
-                <Button className="w-full" variant="cyber">
+                <Button className="w-full" variant="primary">
                   Get a Quote
                 </Button>
               </Link>

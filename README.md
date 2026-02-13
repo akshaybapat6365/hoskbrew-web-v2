@@ -1,6 +1,6 @@
 # Hoskbrew Web v2
 
-The official, high-fidelity retro-modern website for Hoskbrew.
+The official, high-fidelity retro modern website for Hoskbrew.
 
 ## Tech Stack
 

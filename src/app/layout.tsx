@@ -37,7 +37,7 @@ export default function RootLayout({
         <VignetteOverlay intensity={0.4} />
 
         <Header />
-        <main className="flex-grow pt-20 relative z-10">{children}</main>
+        <main className="flex-grow relative z-10">{children}</main>
         <Footer />
       </body>
     </html>

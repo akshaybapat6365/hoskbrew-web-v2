@@ -1,52 +1,113 @@
+import { Metadata } from "next";
+import { PageHeader } from "@/components/layout/PageHeader";
+import { Section } from "@/components/ui/Section";
 import { ContactForm } from "@/components/ContactForm";
-import Image from "next/image";
+import { Mail, Clock, MapPin } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Contact | HoskBrew",
+  description:
+    "Get a quote for cartridge manufacturing, packaging, or any of our homebrew production services.",
+};
+
+const CONTACT_INFO = [
+  {
+    icon: Mail,
+    label: "Email",
+    value: "hello@hoskbrew.com",
+    href: "mailto:hello@hoskbrew.com",
+  },
+  {
+    icon: Clock,
+    label: "Response Time",
+    value: "Within 1-2 business days",
+  },
+  {
+    icon: MapPin,
+    label: "Location",
+    value: "United States",
+  },
+];
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-brand-bg relative">
-      <div className="absolute inset-0 bg-[url('/assets/images/HoskBrew_VisualCenter_08012025_Page_004.png')] bg-cover bg-center opacity-10 pointer-events-none" />
+    <>
+      <PageHeader
+        title="Get in Touch"
+        subtitle="Whether you need a quote for cartridge manufacturing, have questions about our services, or want to discuss a custom project — we're here to help."
+        label="Contact"
+      />
 
-      <div className="container mx-auto px-4 py-24 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div className="space-y-8">
-            <h1 className="text-5xl md:text-7xl font-retro text-brand-text text-shadow-crt">
-              START YOUR <span className="text-brand-highlight">QUEST</span>
-            </h1>
-            <p className="text-xl font-sans text-brand-text/80 leading-relaxed max-w-lg">
-              Whether you need 500 custom cartridges, a new PCB design, or just
-              want to chat about 8-bit mappers — we're ready.
-            </p>
-
-            <div className="bg-brand-surface/20 p-8 border-l-4 border-brand-primary space-y-4">
-              <h3 className="font-retro text-2xl text-brand-text">
-                HQ LOCATION
-              </h3>
-              <p className="font-sans text-brand-text/70">
-                Hoskbrew Industries
-                <br />
-                123 Pixel Avenue, Sector 7G
-                <br />
-                Retro City, CA 90210
-              </p>
-              <p className="font-mono text-brand-primary pt-2">
-                SIGNAL: hello@hoskbrew.com
-              </p>
+      <Section spacing="loose">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
+          <div className="flex flex-col gap-8 lg:col-span-2">
+            <div className="flex flex-col gap-6">
+              {CONTACT_INFO.map((item) => (
+                <div
+                  key={item.label}
+                  className="flex items-start gap-4 rounded-lg border border-brand-border bg-brand-bg-elevated p-4"
+                >
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-brand-primary/10">
+                    <item.icon className="h-5 w-5 text-brand-primary" />
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-wide text-brand-text-dim">
+                      {item.label}
+                    </p>
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        className="text-sm font-medium text-brand-text hover:text-brand-primary transition-colors"
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="text-sm font-medium text-brand-text">
+                        {item.value}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
 
-            <div className="relative h-64 w-full rounded-lg overflow-hidden border-2 border-brand-surface/50">
-              <div className="absolute inset-0 bg-brand-surface/40 flex items-center justify-center">
-                <p className="font-retro text-brand-text/50 animate-pulse">
-                  MAP MODULE LOADING...
-                </p>
-              </div>
+            <div className="rounded-lg border border-brand-border bg-brand-bg-elevated p-5">
+              <h3 className="mb-3 font-retro text-lg text-brand-text">
+                What to Include
+              </h3>
+              <ul className="flex flex-col gap-2 text-sm text-brand-text-muted">
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-accent" />
+                  Target platform(s) — NES, SNES, GB, GBA, Genesis
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-accent" />
+                  Estimated quantity needed
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-accent" />
+                  ROM size and mapper requirements
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-accent" />
+                  Packaging needs (shell, manual, box, labels)
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-accent" />
+                  Target timeline for delivery
+                </li>
+              </ul>
             </div>
           </div>
 
-          <div className="bg-brand-bg-elevated/80 backdrop-blur-md p-8 border border-brand-text/10 shadow-[8px_8px_0px_0px_rgba(255,255,255,0.1)]">
+          <div className="rounded-lg border border-brand-border bg-brand-bg-elevated p-6 lg:col-span-3">
+            <h2 className="mb-6 text-heading text-brand-text">
+              Send us a message
+            </h2>
             <ContactForm />
           </div>
         </div>
-      </div>
-    </div>
+      </Section>
+    </>
   );
 }
