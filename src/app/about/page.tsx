@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { AssetRegistry } from "@/lib/assets";
 
 const team = [
@@ -27,7 +28,6 @@ const team = [
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-retro-void">
-      {/* Mission Section */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/assets/images/HoskBrew_VisualCenter_08012025_Page_008.png')] bg-cover bg-center opacity-20" />
         <div className="container mx-auto px-4 relative z-10 text-center space-y-8">
@@ -44,10 +44,12 @@ export default function AboutPage() {
             professional-grade production.
           </p>
         </div>
+      </section>
+
       <section className="py-24 bg-retro-gray/10 border-y border-retro-gray/30">
         <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div className="space-y-6">
-            <h2 className="text-4xl font-retro text-retro-secondary">
+            <h2 className="text-4xl font-retro text-retro-phosphor">
               ORIGIN STORY
             </h2>
             <p className="text-lg font-sans text-retro-white/70">
@@ -64,6 +66,7 @@ export default function AboutPage() {
           </div>
           <div className="relative h-[400px] bg-retro-black border-4 border-retro-white shadow-[8px_8px_0px_0px_rgba(16,185,129,1)]">
             <div className="absolute inset-0 bg-[url('/assets/images/HoskBrew_VisualCenter_08012025_Page_002.png')] bg-cover bg-center grayscale hover:grayscale-0 transition-all duration-500" />
+          </div>
         </div>
       </section>
 
@@ -82,7 +85,7 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 className="group bg-retro-gray/20 border border-retro-white/10 p-6 text-center hover:bg-retro-gray/40 transition-colors"
               >
-                <div className="relative w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-2 border-retro-secondary group-hover:scale-110 transition-transform">
+                <div className="relative w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-2 border-retro-phosphor group-hover:scale-110 transition-transform">
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -93,7 +96,7 @@ export default function AboutPage() {
                 <h3 className="text-2xl font-retro text-retro-white">
                   {member.name}
                 </h3>
-                <p className="text-retro-secondary font-mono text-sm uppercase mb-4">
+                <p className="text-retro-phosphor font-mono text-sm uppercase mb-4">
                   {member.role}
                 </p>
                 <p className="text-retro-white/70 font-sans italic">
