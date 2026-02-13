@@ -1,28 +1,131 @@
 @import "tailwindcss";
 
 @theme {
-  --color-retro-void: #050505;
-  --color-retro-black: #0f0f0f;
-  --color-retro-gray: #1a1a1a;
-  --color-retro-plastic: #2d2d2d;
-  --color-retro-white: #f0f0f0;
-  --color-retro-accent: #ff0055;
-  --color-retro-phosphor: #10b981;
-  --color-retro-amber: #fbbf24;
+  --color-brand-bg: #11192c;
+  --color-brand-bg-elevated: #1a2340;
+  --color-brand-surface: #232d4a;
+  --color-brand-surface-hover: #2c3756;
+  --color-brand-border: #334166;
+  --color-brand-border-hover: #445580;
+  --color-brand-text: #f0f0f0;
+  --color-brand-text-muted: #9ca3af;
+  --color-brand-text-dim: #6b7280;
+  --color-brand-primary: #007aff;
+  --color-brand-primary-light: #3395ff;
+  --color-brand-primary-dark: #0062cc;
+  --color-brand-accent: #44cf6c;
+  --color-brand-accent-light: #66d888;
+  --color-brand-accent-dark: #33a854;
+  --color-brand-highlight: #ff3b30;
+  --color-brand-highlight-light: #ff6259;
+  --color-brand-success: #44cf6c;
+  --color-brand-warning: #ffd60a;
+  --color-brand-error: #ff3b30;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-retro: var(--font-pixel), monospace;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 @layer utilities {
+  .text-display {
+    font-family: var(--font-sans);
+    font-size: clamp(2.125rem, 3.6vw, 4.25rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.04em;
+    line-height: 0.85;
+  }
+
+  .text-heading {
+    font-family: var(--font-sans);
+    font-size: clamp(1.75rem, 2.4vw, 2.75rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    line-height: 0.9;
+  }
+
+  .text-subhead {
+    font-family: var(--font-sans);
+    font-size: clamp(1.125rem, 1.25vw, 1.375rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: color-mix(in oklab, var(--color-brand-text) 75%, transparent);
+  }
+
+  .text-body {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.1;
+    color: color-mix(in oklab, var(--color-brand-text) 78%, transparent);
+  }
+
+  .text-caption {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 300;
+    line-height: 1.2;
+    color: color-mix(in oklab, var(--color-brand-text) 65%, transparent);
+  }
+
+  .text-label {
+    font-family: var(--font-retro);
+    font-size: 0.75rem;
+    line-height: 1.2;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .text-mono-ui {
+    font-family: var(--font-mono);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
   .text-shadow-crt {
     text-shadow:
-      2px 2px 0px rgba(0, 0, 0, 0.5),
-      -1px -1px 0 rgba(255, 255, 255, 0.1);
+      0 0 0 rgba(0, 122, 255, 0),
+      0 0 14px rgba(0, 122, 255, 0.18),
+      1px 0 0 rgba(0, 122, 255, 0.14),
+      -1px 0 0 rgba(68, 207, 108, 0.08);
   }
 
   .drop-shadow-neon {
-    filter: drop-shadow(0 0 5px var(--color-retro-accent));
+    filter: drop-shadow(0 0 10px rgba(0, 122, 255, 0.35));
+  }
+
+  .retro-glow-blue {
+    text-shadow:
+      0 0 10px rgba(0, 122, 255, 0.5),
+      0 0 20px rgba(0, 122, 255, 0.3),
+      0 0 40px rgba(0, 122, 255, 0.15);
+  }
+
+  .retro-glow-green {
+    text-shadow:
+      0 0 10px rgba(68, 207, 108, 0.5),
+      0 0 20px rgba(68, 207, 108, 0.3),
+      0 0 40px rgba(68, 207, 108, 0.15);
+  }
+
+  .pixel-grid-bg {
+    background-image:
+      linear-gradient(rgba(0, 122, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 122, 255, 0.03) 1px, transparent 1px);
+    background-size: 4px 4px;
+  }
+
+  .crt-scanlines {
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.15) 0px,
+      rgba(0, 0, 0, 0.15) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+    pointer-events: none;
   }
 
   .bg-noise {
@@ -31,8 +134,17 @@
 }
 
 :root {
-  --background: #050505;
-  --foreground: #f0f0f0;
+  --background: var(--color-brand-bg);
+  --foreground: var(--color-brand-text);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--color-brand-primary);
+  color: #000000;
 }
 
 body {

@@ -1,86 +1,138 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Button } from "./ui/Button";
+import { Container } from "./ui/Container";
 import { AssetRegistry } from "@/lib/assets";
-import { GlitchText, Scanline } from "./ui/Effects";
+import { PixelParticles } from "@/components/ui/PixelParticles";
+import {
+  fadeInLeft,
+  fadeInRight,
+  glowPulse,
+  floatAnimation,
+  staggerContainer,
+  staggerItem,
+  typewriter,
+  typewriterChar,
+} from "@/lib/motion";
 
 export default function Hero() {
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 500], [0, 200]);
-  const rotate = useTransform(scrollY, [0, 500], [0, 10]);
+  const tagline =
+    "HoskBrew manufactures premium cartridges, packaging, and manuals for indie developers shipping physical games on NES, SNES, Game Boy, GBA, and Genesis.";
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-retro-void">
-      <Scanline />
+    <section className="pixel-grid-bg relative flex min-h-[92vh] items-center overflow-hidden bg-brand-bg pt-20">
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 55% at 72% 38%, rgba(0,122,255,0.14), transparent 60%), radial-gradient(ellipse 60% 42% at 18% 82%, rgba(68,207,108,0.10), transparent 55%)",
+        }}
+      />
 
-      <div className="absolute inset-0 perspective-[1000px] pointer-events-none">
-        <div className="absolute bottom-[-50%] left-[-50%] w-[200%] h-[100%] bg-grid opacity-20 transform rotate-x-[60deg] animate-[scanline_4s_linear_infinite]" />
-      </div>
+      <PixelParticles className="opacity-70" />
 
-      <div className="container mx-auto px-4 z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="space-y-8"
-        >
-          <div className="inline-block px-4 py-1 bg-retro-gray/50 border border-retro-white/10 rounded-full">
-            <span className="text-retro-phosphor font-mono text-xs animate-pulse">
-              ● SYSTEM READY
-            </span>
-          </div>
+      <div className="pointer-events-none absolute inset-0 crt-scanlines opacity-[0.22]" />
 
-          <h1 className="text-6xl md:text-8xl font-retro text-retro-white leading-[0.9]">
-            LEVEL <span className="text-retro-accent">UP</span>
-            <br />
-            YOUR <GlitchText text="RETRO" />
-          </h1>
-
-          <p className="text-xl font-sans text-retro-white/60 max-w-lg leading-relaxed">
-            Premium cartridges, manuals, and manufacturing for the{" "}
-            <span className="text-retro-white font-bold">
-              homebrew revolution
-            </span>
-            .
-          </p>
-
-          <div className="flex gap-4 pt-4">
-            <Button size="lg" variant="cyber">
-              Insert Coin
-            </Button>
-            <Button size="lg" variant="ghost">
-              Read Docs_
-            </Button>
-          </div>
-        </motion.div>
-
-        <motion.div
-          style={{ y, rotate }}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="relative h-[500px] w-full flex items-center justify-center"
-        >
-          <div className="absolute inset-0 bg-retro-accent/5 blur-[100px] rounded-full animate-pulse" />
+      <Container size="wide">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <motion.div
-            animate={{ y: [0, -30, 0] }}
-            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            className="relative w-full h-full"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="show"
+            className="flex flex-col gap-6"
           >
-            <Image
-              src={AssetRegistry.MASCOT_HERO}
-              alt="Hoskbrew Mascot"
-              fill
-              className="object-contain drop-shadow-[0_0_30px_rgba(255,0,85,0.3)]"
-              priority
-            />
-          </motion.div>
-        </motion.div>
-      </div>
+            <motion.span
+              variants={staggerItem}
+              className="text-label text-brand-accent w-fit"
+            >
+              Retro Gaming Hardware & Homebrew
+            </motion.span>
 
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_50%,rgba(0,0,0,0.8)_100%)]" />
+            <motion.h1
+              variants={fadeInLeft}
+              className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter text-brand-text leading-[0.86]"
+            >
+              Your Game.{" "}
+              <span className="text-brand-primary retro-glow-blue">
+                Real Cartridges.
+              </span>
+            </motion.h1>
+
+            <motion.p
+              variants={typewriter}
+              initial="hidden"
+              animate="show"
+              className="text-subhead max-w-lg whitespace-pre-wrap"
+            >
+              {Array.from(tagline).map((ch, i) => (
+                <motion.span key={`${ch}-${i}`} variants={typewriterChar}>
+                  {ch}
+                </motion.span>
+              ))}
+            </motion.p>
+
+            <motion.div
+              variants={staggerItem}
+              className="flex flex-wrap gap-3 pt-2"
+            >
+              <Button href="/products" size="lg" variant="primary">
+                Browse Products
+              </Button>
+              <Button href="/contact" size="lg" variant="outline">
+                Get a Quote
+              </Button>
+            </motion.div>
+
+            <motion.div
+              variants={staggerItem}
+              className="flex items-center gap-6 pt-4 text-sm text-brand-text-muted"
+            >
+              <span className="flex items-center gap-2">
+                <span className="inline-block h-2 w-2 rounded-full bg-brand-accent" />
+                Accepting orders
+              </span>
+              <span>NES · SNES · GB · GBA · Genesis</span>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            variants={fadeInRight}
+            initial="hidden"
+            animate="show"
+            className="relative flex items-center justify-center"
+          >
+            <motion.div
+              variants={glowPulse}
+              initial="hidden"
+              animate="show"
+              className="absolute h-[600px] w-[600px] rounded-full bg-brand-primary/10 blur-[120px]"
+            />
+
+            <div className="absolute h-[560px] w-[560px] rounded-3xl border border-brand-border/70 bg-brand-surface/20 shadow-[inset_0_0_0_1px_rgba(0,122,255,0.10)]" />
+            <div className="pixel-grid-bg absolute h-[560px] w-[560px] rounded-3xl opacity-60" />
+            <div className="pointer-events-none absolute h-[560px] w-[560px] rounded-3xl crt-scanlines opacity-[0.14]" />
+
+            <motion.div
+              variants={floatAnimation}
+              initial="initial"
+              animate="float"
+              className="relative h-[500px] w-[500px] sm:h-[600px] sm:w-[600px]"
+            >
+              <Image
+                src={AssetRegistry.mascot.color}
+                alt="HoskBrew octopus mascot"
+                fill
+                className="object-contain drop-shadow-[0_0_60px_rgba(0,122,255,0.3)]"
+                priority
+              />
+            </motion.div>
+          </motion.div>
+        </div>
+      </Container>
+
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_58%,rgba(0,0,0,0.75)_100%)]" />
     </section>
   );
 }
