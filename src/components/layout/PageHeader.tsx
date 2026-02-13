@@ -6,7 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { fadeInUp, staggerContainer, staggerItem } from "@/lib/motion";
 
 export type PageHeaderProps = {
-  /** Pixelify Sans display title */
+  /** Inter Black uppercase display title */
   title: string;
   /** Optional subtitle in body font */
   subtitle?: string;
@@ -21,7 +21,7 @@ export type PageHeaderProps = {
 /**
  * Full-width page header with brand typography.
  *
- * Renders an accent label, Pixelify display title, and optional subtitle
+ * Renders an accent label, Inter Black display title, and optional subtitle
  * with staggered entrance animation. Used at the top of every interior page.
  */
 export function PageHeader({
@@ -43,7 +43,7 @@ export function PageHeader({
         className="pointer-events-none absolute inset-0 opacity-30"
         style={{
           background:
-            "radial-gradient(ellipse 60% 40% at 50% 0%, rgba(27,143,126,0.18), transparent 70%)",
+            "radial-gradient(ellipse 60% 40% at 50% 0%, rgba(0,122,255,0.18), transparent 70%)",
         }}
       />
 
@@ -69,7 +69,7 @@ export function PageHeader({
 
           <motion.h1
             variants={fadeInUp}
-            className="text-display text-brand-text"
+            className="font-black uppercase tracking-tight text-3xl md:text-4xl lg:text-5xl text-brand-text leading-[0.9]"
           >
             {title}
           </motion.h1>

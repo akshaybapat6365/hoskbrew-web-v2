@@ -72,7 +72,7 @@ export default function ContactPage() {
             </div>
 
             <div className="rounded-lg border border-brand-border bg-brand-bg-elevated p-5">
-              <h3 className="mb-3 font-retro text-lg text-brand-text">
+              <h3 className="mb-3 font-black uppercase tracking-tight text-lg text-brand-text leading-[0.95]">
                 What to Include
               </h3>
               <ul className="flex flex-col gap-2 text-sm text-brand-text-muted">

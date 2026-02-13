@@ -30,7 +30,7 @@ export function Section({
     primary: "bg-brand-bg",
     elevated: "bg-brand-bg-elevated",
     accent:
-      "bg-brand-accent/10 border-y border-brand-accent/25 shadow-[inset_0_1px_0_rgba(224,188,94,0.12)]",
+      "bg-brand-accent/10 border-y border-brand-accent/25 shadow-[inset_0_1px_0_rgba(68,207,108,0.16)]",
   } as const;
 
   return (

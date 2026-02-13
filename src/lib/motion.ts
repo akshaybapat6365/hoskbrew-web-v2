@@ -102,3 +102,66 @@ export const staggerItem: Variants = {
     transition: { duration: durations.normal, ease: easings.out },
   },
 };
+
+export const floatAnimation: Variants = {
+  initial: { y: 0 },
+  float: {
+    y: [0, -20, 0],
+    transition: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+  },
+};
+
+export const glowPulse: Variants = {
+  hidden: { opacity: 0.75 },
+  show: {
+    opacity: [0.75, 1, 0.82],
+    transition: { duration: 2.8, repeat: Infinity, ease: "easeInOut" },
+  },
+};
+
+export const pixelReveal: Variants = {
+  hidden: {
+    opacity: 0,
+    clipPath: "inset(100% 0% 0% 0%)",
+    filter: "brightness(1.15)",
+  },
+  show: {
+    opacity: 1,
+    clipPath: "inset(0% 0% 0% 0%)",
+    filter: "brightness(1)",
+    transition: { duration: durations.hero, ease: easings.out },
+  },
+};
+
+export const typewriter: Variants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.018,
+      delayChildren: 0.02,
+    },
+  },
+};
+
+export const typewriterChar: Variants = {
+  hidden: { opacity: 0, y: 2 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: durations.fast, ease: easings.out },
+  },
+};
+
+export const screenPowerOn: Variants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.95,
+    filter: "brightness(1.55) contrast(1.15)",
+  },
+  show: {
+    opacity: 1,
+    scale: 1,
+    filter: ["brightness(1.6) contrast(1.18)", "brightness(1) contrast(1)"],
+    transition: { duration: durations.hero, ease: easings.out },
+  },
+};

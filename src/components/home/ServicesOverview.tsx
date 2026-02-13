@@ -38,12 +38,12 @@ export function ServicesOverview() {
             <motion.div
               key={service.slug}
               variants={staggerItem}
-              className="group flex flex-col gap-4 rounded-lg border border-brand-border bg-brand-bg p-6 transition-all duration-300 hover:border-brand-primary/40 hover:shadow-[0_0_24px_rgba(27,143,126,0.1)]"
+              className="group flex flex-col gap-4 rounded-lg border border-brand-border bg-brand-bg p-6 transition-all duration-300 hover:scale-[1.01] hover:border-brand-primary/60 hover:shadow-[0_0_0_1px_rgba(0,122,255,0.18),0_0_34px_rgba(0,122,255,0.12)]"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-md bg-brand-primary/10">
-                <Icon className="h-5 w-5 text-brand-primary" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-md bg-brand-primary/10 transition-all duration-300 group-hover:bg-brand-primary/15">
+                <Icon className="h-5 w-5 text-brand-primary transition-all duration-300 group-hover:drop-shadow-[0_0_18px_rgba(0,122,255,0.45)]" />
               </div>
-              <h3 className="font-retro text-lg text-brand-text">
+              <h3 className="font-sans font-black uppercase text-lg text-brand-text leading-[0.95] tracking-tight">
                 {service.name}
               </h3>
               <p className="text-sm leading-relaxed text-brand-text-muted">

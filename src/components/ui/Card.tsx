@@ -50,9 +50,9 @@ export function Card({
       whileInView="show"
       viewport={{ once: true, margin: "-40px" }}
       className={cn(
-        "group relative flex flex-col overflow-hidden rounded-lg border border-brand-border bg-brand-bg-elevated transition-all duration-300",
+        "group relative flex flex-col overflow-hidden rounded-lg border border-brand-border bg-brand-bg-elevated transition-all duration-300 transform-gpu will-change-transform",
         href &&
-          "hover:border-brand-primary/40 hover:shadow-[0_0_24px_rgba(27,143,126,0.12)]",
+          "hover:scale-[1.02] hover:border-brand-primary/60 hover:shadow-[0_0_0_1px_rgba(0,122,255,0.22),0_0_34px_rgba(0,122,255,0.16),0_18px_60px_rgba(0,0,0,0.35)]",
         className,
       )}
     >
@@ -71,7 +71,7 @@ export function Card({
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
           {label && (
-            <span className="absolute top-3 left-3 rounded bg-brand-accent/90 px-2 py-0.5 text-xs font-semibold text-brand-bg">
+            <span className="text-label absolute top-3 left-3 rounded bg-brand-accent/90 px-2 py-0.5 text-brand-bg">
               {label}
             </span>
           )}
@@ -79,7 +79,7 @@ export function Card({
       )}
 
       <div className="flex flex-1 flex-col gap-2 p-5">
-        <h3 className="font-retro text-lg text-brand-text leading-tight tracking-tight">
+        <h3 className="font-sans font-black uppercase text-lg text-brand-text leading-[0.95] tracking-tight">
           {title}
         </h3>
         {description && (

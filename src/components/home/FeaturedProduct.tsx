@@ -32,7 +32,7 @@ export function FeaturedProduct() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="relative aspect-[4/3] overflow-hidden rounded-lg border border-brand-border"
+          className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-brand-border bg-brand-surface/30 transition-all duration-300 hover:scale-[1.01] hover:border-brand-primary/60 hover:shadow-[0_0_0_1px_rgba(0,122,255,0.22),0_0_36px_rgba(0,122,255,0.14)]"
         >
           <Image
             src={featured.image}
@@ -41,6 +41,7 @@ export function FeaturedProduct() {
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
+          <div className="pointer-events-none absolute inset-0 crt-scanlines opacity-[0.12]" />
         </motion.div>
 
         <motion.div

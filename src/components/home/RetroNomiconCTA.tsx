@@ -76,14 +76,18 @@ export function RetroNomiconCTA() {
           viewport={{ once: true }}
           className="relative flex items-center justify-center lg:col-span-2"
         >
-          <div className="absolute h-64 w-64 rounded-full bg-brand-accent/8 blur-[60px]" />
-          <div className="relative h-64 w-64 sm:h-72 sm:w-72">
+          <div className="absolute h-72 w-72 rounded-full bg-brand-primary/10 blur-[80px]" />
+          <div className="relative h-72 w-72 sm:h-80 sm:w-80">
+            <div className="absolute inset-0 rounded-2xl border border-brand-border bg-brand-bg-elevated shadow-[0_0_0_1px_rgba(0,122,255,0.10)]" />
+            <div className="pixel-grid-bg absolute inset-0 rounded-2xl opacity-70" />
+            <div className="pointer-events-none absolute inset-0 rounded-2xl crt-scanlines opacity-[0.16]" />
+            <div className="absolute inset-3 rounded-xl border border-brand-border/60 bg-brand-surface/35" />
             <Image
               src={AssetRegistry.mascot.bw}
               alt="HoskBrew mascot reading RetroNomicon"
               fill
-              className="object-contain opacity-70"
-              sizes="288px"
+              className="object-contain opacity-75 drop-shadow-[0_0_28px_rgba(0,122,255,0.18)]"
+              sizes="320px"
             />
           </div>
         </motion.div>

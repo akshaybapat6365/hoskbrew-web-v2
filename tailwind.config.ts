@@ -44,7 +44,7 @@ const config: Config = {
       },
       backgroundImage: {
         scanlines:
-          "linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06))",
+          "linear-gradient(rgba(17, 25, 44, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(0, 122, 255, 0.04), rgba(68, 207, 108, 0.02), rgba(0, 122, 255, 0.04))",
         grid: "linear-gradient(to right, var(--color-brand-border) 1px, transparent 1px), linear-gradient(to bottom, var(--color-brand-border) 1px, transparent 1px)",
       },
       animation: {

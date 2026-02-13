@@ -71,12 +71,12 @@ export default function RetroNomiconPage() {
                 height={180}
                 className="opacity-20"
               />
-              <span className="font-retro text-4xl text-brand-text/20">
+              <span className="font-black uppercase tracking-tight text-4xl text-brand-text/20">
                 Issue #{CURRENT_ISSUE.number}
               </span>
             </div>
-            <div className="absolute bottom-0 left-0 right-0 bg-brand-accent p-5">
-              <h2 className="font-retro text-2xl text-brand-bg">
+            <div className="absolute bottom-0 left-0 right-0 bg-brand-primary p-5">
+              <h2 className="font-black uppercase tracking-tight text-2xl text-brand-bg leading-[0.95]">
                 {CURRENT_ISSUE.title}
               </h2>
               <p className="text-sm text-brand-bg/70">{CURRENT_ISSUE.date}</p>
@@ -97,7 +97,7 @@ export default function RetroNomiconPage() {
                   key={article}
                   className="flex items-start gap-3 border-b border-brand-border/30 pb-3 last:border-0"
                 >
-                  <span className="font-retro text-sm text-brand-accent">
+                  <span className="text-label text-brand-accent">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="text-brand-text">{article}</span>
@@ -135,7 +135,7 @@ export default function RetroNomiconPage() {
                   <span>Issue #{issue.number}</span>
                   <span>{issue.date}</span>
                 </div>
-                <h3 className="mb-3 font-retro text-xl text-brand-text group-hover:text-brand-primary transition-colors">
+                <h3 className="mb-3 font-black uppercase tracking-tight text-lg text-brand-text group-hover:text-brand-primary transition-colors leading-[0.95]">
                   {issue.title}
                 </h3>
                 <ul className="flex flex-col gap-1">

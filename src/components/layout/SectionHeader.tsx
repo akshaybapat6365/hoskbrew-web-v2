@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { fadeInUp, staggerContainer, staggerItem } from "@/lib/motion";
 
 export type SectionHeaderProps = {
-  /** Pixelify Sans heading */
+  /** Inter Bold uppercase heading */
   title: string;
   /** Optional body-font description */
   description?: string;
@@ -51,7 +51,10 @@ export function SectionHeader({
         </motion.span>
       )}
 
-      <motion.h2 variants={fadeInUp} className="text-heading text-brand-text">
+      <motion.h2
+        variants={fadeInUp}
+        className="font-black uppercase tracking-tight text-2xl md:text-3xl text-brand-text leading-[0.92]"
+      >
         {title}
       </motion.h2>
 

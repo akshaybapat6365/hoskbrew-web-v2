@@ -10,7 +10,7 @@ export type NoiseOverlayProps = {
 /**
  * Fixed film-grain layer using the global `.bg-noise` utility.
  */
-export function NoiseOverlay({ className, opacity = 0.03 }: NoiseOverlayProps) {
+export function NoiseOverlay({ className, opacity = 0.05 }: NoiseOverlayProps) {
   return (
     <div
       aria-hidden
@@ -58,19 +58,40 @@ export type ScanlineOverlayProps = {
  */
 export function ScanlineOverlay({
   className,
-  opacity = 0.1,
+  opacity = 0.06,
 }: ScanlineOverlayProps) {
   return (
     <div
       aria-hidden
-      className={cn(
-        "pointer-events-none absolute inset-0 overflow-hidden",
-        className,
-      )}
-      style={{ opacity }}
-    >
-      <div className="absolute inset-0 bg-scanlines" />
-      <div className="absolute inset-0 animate-scanline bg-gradient-to-b from-transparent via-brand-text/5 to-transparent h-[10%]" />
-    </div>
+      className={cn("pointer-events-none fixed inset-0 z-[95]", className)}
+      style={{
+        opacity,
+        background:
+          "repeating-linear-gradient(0deg, rgba(0,0,0,0.55) 0px, rgba(0,0,0,0.55) 1px, transparent 1px, transparent 3px)",
+      }}
+    />
+  );
+}
+
+export type PixelGridOverlayProps = {
+  className?: string;
+  opacity?: number;
+};
+
+export function PixelGridOverlay({
+  className,
+  opacity = 0.65,
+}: PixelGridOverlayProps) {
+  return (
+    <div
+      aria-hidden
+      className={cn("pointer-events-none fixed inset-0 z-[92]", className)}
+      style={{
+        opacity,
+        backgroundImage:
+          "linear-gradient(rgba(0,122,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0,122,255,0.02) 1px, transparent 1px)",
+        backgroundSize: "4px 4px",
+      }}
+    />
   );
 }

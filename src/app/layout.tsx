@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import { Inter, Pixelify_Sans } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { NoiseOverlay, VignetteOverlay } from "@/components/ui/Overlays";
+import {
+  NoiseOverlay,
+  PixelGridOverlay,
+  ScanlineOverlay,
+  VignetteOverlay,
+} from "@/components/ui/Overlays";
 import "./globals.css";
 
 const inter = Inter({
@@ -33,7 +38,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${pixel.variable} bg-brand-bg text-brand-text antialiased overflow-x-hidden flex flex-col min-h-screen`}
       >
-        <NoiseOverlay opacity={0.03} />
+        <NoiseOverlay opacity={0.04} />
+        <PixelGridOverlay />
+        <ScanlineOverlay />
         <VignetteOverlay intensity={0.4} />
 
         <Header />

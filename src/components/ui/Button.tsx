@@ -26,15 +26,15 @@ export type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-brand-primary text-brand-bg font-semibold hover:bg-brand-primary-light shadow-[0_0_0_1px_rgba(27,143,126,0.3),0_1px_3px_rgba(0,0,0,0.4)] hover:shadow-[0_0_16px_rgba(27,143,126,0.35)]",
+    "bg-brand-primary text-brand-bg font-semibold hover:bg-brand-primary-light shadow-[0_0_0_1px_rgba(0,122,255,0.32),0_1px_3px_rgba(0,0,0,0.45)] hover:shadow-[0_0_18px_rgba(0,122,255,0.40),0_0_42px_rgba(0,122,255,0.18)]",
   secondary:
-    "bg-brand-surface text-brand-text border border-brand-border hover:border-brand-border-hover hover:bg-brand-surface-hover",
+    "bg-brand-surface text-brand-text border border-brand-border hover:border-brand-border-hover hover:bg-brand-surface-hover hover:shadow-[0_0_22px_rgba(0,122,255,0.08)]",
   accent:
-    "bg-brand-accent text-brand-bg font-semibold hover:bg-brand-accent-light shadow-[0_0_0_1px_rgba(212,168,67,0.25),0_1px_3px_rgba(0,0,0,0.4)]",
+    "bg-brand-accent text-brand-bg font-semibold hover:bg-brand-accent-light shadow-[0_0_0_1px_rgba(68,207,108,0.26),0_1px_3px_rgba(0,0,0,0.45)] hover:shadow-[0_0_18px_rgba(68,207,108,0.38),0_0_42px_rgba(68,207,108,0.16)]",
   ghost:
     "bg-transparent text-brand-text-muted hover:text-brand-text hover:bg-brand-surface/50",
   outline:
-    "bg-transparent text-brand-primary border border-brand-primary/40 hover:bg-brand-primary/10 hover:border-brand-primary",
+    "bg-transparent text-brand-primary border border-brand-primary/40 hover:bg-brand-primary/10 hover:border-brand-primary hover:shadow-[0_0_18px_rgba(0,122,255,0.25)]",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {

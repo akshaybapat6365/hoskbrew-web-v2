@@ -98,7 +98,7 @@ export default function AboutPage() {
               key={value.title}
               className="flex flex-col gap-3 rounded-lg border border-brand-border bg-brand-bg p-6"
             >
-              <h3 className="font-retro text-lg text-brand-text">
+              <h3 className="font-black uppercase tracking-tight text-lg text-brand-text leading-[0.95]">
                 {value.title}
               </h3>
               <p className="text-sm leading-relaxed text-brand-text-muted">
