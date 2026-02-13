@@ -1,20 +1,87 @@
 @import "tailwindcss";
 
 @theme {
-  --color-retro-void: #050505;
-  --color-retro-black: #0f0f0f;
-  --color-retro-gray: #1a1a1a;
-  --color-retro-plastic: #2d2d2d;
-  --color-retro-white: #f0f0f0;
-  --color-retro-accent: #ff0055;
-  --color-retro-phosphor: #10b981;
-  --color-retro-amber: #fbbf24;
+  --color-brand-bg: #0b0e11;
+  --color-brand-bg-elevated: #151921;
+  --color-brand-surface: #1c2233;
+  --color-brand-surface-hover: #232d40;
+  --color-brand-border: #2a3347;
+  --color-brand-border-hover: #374463;
+
+  --color-brand-text: #e8e6e3;
+  --color-brand-text-muted: #8b8d94;
+  --color-brand-text-dim: #5a5d66;
+
+  --color-brand-primary: #1b8f7e;
+  --color-brand-primary-light: #24b8a0;
+  --color-brand-primary-dark: #14705f;
+
+  --color-brand-accent: #d4a843;
+  --color-brand-accent-light: #e0bc5e;
+  --color-brand-accent-dark: #b08a2e;
+
+  --color-brand-highlight: #c74634;
+  --color-brand-highlight-light: #d95a48;
+
+  --color-brand-success: #2d9f6b;
+  --color-brand-warning: #d4a843;
+  --color-brand-error: #c74634;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-retro: var(--font-pixel), monospace;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 @layer utilities {
+  .text-display {
+    font-family: var(--font-retro);
+    font-size: clamp(2.5rem, 4vw, 4.75rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+  }
+
+  .text-heading {
+    font-family: var(--font-retro);
+    font-size: clamp(1.75rem, 2.4vw, 2.75rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .text-subhead {
+    font-family: var(--font-sans);
+    font-size: clamp(1.125rem, 1.25vw, 1.375rem);
+    line-height: 1.5;
+    color: color-mix(in oklab, var(--color-brand-text) 75%, transparent);
+  }
+
+  .text-body {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: color-mix(in oklab, var(--color-brand-text) 78%, transparent);
+  }
+
+  .text-caption {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: color-mix(in oklab, var(--color-brand-text) 65%, transparent);
+  }
+
+  .text-label {
+    font-family: var(--font-retro);
+    font-size: 0.75rem;
+    line-height: 1.2;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .text-mono-ui {
+    font-family: var(--font-mono);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
   .text-shadow-crt {
     text-shadow:
       2px 2px 0px rgba(0, 0, 0, 0.5),
@@ -22,7 +89,7 @@
   }
 
   .drop-shadow-neon {
-    filter: drop-shadow(0 0 5px var(--color-retro-accent));
+    filter: drop-shadow(0 0 8px var(--color-brand-highlight));
   }
 
   .bg-noise {
@@ -31,8 +98,17 @@
 }
 
 :root {
-  --background: #050505;
-  --foreground: #f0f0f0;
+  --background: var(--color-brand-bg);
+  --foreground: var(--color-brand-text);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--color-brand-primary);
+  color: var(--color-brand-bg);
 }
 
 body {

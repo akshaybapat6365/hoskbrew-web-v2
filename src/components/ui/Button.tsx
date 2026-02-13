@@ -16,10 +16,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ) => {
     const variants = {
       plastic:
-        "bg-retro-plastic text-retro-white border-b-4 border-r-4 border-retro-black shadow-lg active:border-b-0 active:border-r-0 active:translate-y-1 active:translate-x-1 transition-all",
+        "bg-brand-surface-hover text-brand-text border-b-4 border-r-4 border-brand-bg-elevated shadow-lg active:border-b-0 active:border-r-0 active:translate-y-1 active:translate-x-1 transition-all",
       cyber:
-        "bg-transparent text-retro-accent border border-retro-accent shadow-[0_0_10px_rgba(255,0,85,0.5)] hover:bg-retro-accent hover:text-retro-black hover:shadow-[0_0_20px_rgba(255,0,85,0.8)] transition-all uppercase tracking-widest",
-      ghost: "bg-transparent text-retro-white hover:bg-retro-white/10",
+        "bg-transparent text-brand-highlight border border-brand-highlight shadow-[0_0_10px_rgba(255,0,85,0.5)] hover:bg-brand-highlight hover:text-brand-bg-elevated hover:shadow-[0_0_20px_rgba(255,0,85,0.8)] transition-all uppercase tracking-widest",
+      ghost: "bg-transparent text-brand-text hover:bg-brand-text/10",
     };
 
     const sizes = {
@@ -33,7 +33,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         whileTap={{ scale: 0.98 }}
         className={cn(
-          "relative inline-flex items-center justify-center font-retro focus:outline-none focus:ring-2 focus:ring-retro-accent focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none rounded-sm",
+          "relative inline-flex items-center justify-center font-retro focus:outline-none focus:ring-2 focus:ring-brand-highlight focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none rounded-sm",
           variants[variant],
           sizes[size],
           className,

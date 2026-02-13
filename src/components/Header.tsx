@@ -1,14 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/Button";
-import { AssetRegistry } from "@/lib/assets";
-import { GlitchText } from "./ui/Effects";
+import { Logo } from "./ui/Logo";
+import { cn } from "@/lib/utils";
 
+/** @description Main navigation links */
 const links = [
   { href: "/", label: "Home" },
   { href: "/products", label: "Products" },
@@ -18,45 +19,54 @@ const links = [
   { href: "/contact", label: "Contact" },
 ];
 
+/** @description Site-wide header with responsive navigation */
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-retro-black/80 backdrop-blur-md border-b border-retro-gray/50">
-      <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-        <Link
-          href="/"
-          className="relative h-12 w-48 transition-transform hover:scale-105"
-        >
-          <Image
-            src={AssetRegistry.LOGO_MAIN}
-            alt="Hoskbrew Logo"
-            fill
-            className="object-contain"
-            priority
+    <header className="fixed top-0 left-0 right-0 z-50 bg-brand-bg-elevated/90 backdrop-blur-md border-b border-brand-border/50">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <Link href="/" aria-label="HoskBrew home">
+          <Logo
+            variant="horizontal"
+            colorMode="white"
+            width={160}
+            height={48}
           />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-retro-white hover:text-retro-accent font-retro text-sm uppercase tracking-wider transition-colors relative group"
+              className={cn(
+                "text-sm font-medium uppercase tracking-wide transition-colors relative",
+                pathname === link.href
+                  ? "text-brand-primary"
+                  : "text-brand-text-muted hover:text-brand-text",
+              )}
             >
-              <GlitchText text={link.label} />
+              {link.label}
+              {pathname === link.href && (
+                <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand-primary rounded-full" />
+              )}
             </Link>
           ))}
-          <Button size="sm" variant="cyber">
-            Shop Now
-          </Button>
+          <Link href="/contact">
+            <Button size="sm" variant="cyber">
+              Get a Quote
+            </Button>
+          </Link>
         </nav>
 
         <button
-          className="md:hidden text-retro-white hover:text-retro-accent"
+          className="md:hidden text-brand-text hover:text-brand-primary transition-colors"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
         >
-          {isOpen ? <X size={32} /> : <Menu size={32} />}
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
@@ -66,22 +76,33 @@ export default function Header() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden bg-retro-black border-b border-retro-gray overflow-hidden"
+            className="md:hidden bg-brand-bg-elevated border-b border-brand-border overflow-hidden"
           >
-            <div className="flex flex-col p-4 gap-4">
+            <div className="flex flex-col px-6 py-4 gap-1">
               {links.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-retro-white hover:text-retro-accent font-retro text-lg uppercase py-2 border-b border-retro-gray/20 last:border-0"
+                  className={cn(
+                    "text-base font-medium py-3 border-b border-brand-border/20 last:border-0 transition-colors",
+                    pathname === link.href
+                      ? "text-brand-primary"
+                      : "text-brand-text hover:text-brand-primary",
+                  )}
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
                 </Link>
               ))}
-              <Button className="w-full mt-4" variant="cyber">
-                Shop Now
-              </Button>
+              <Link
+                href="/contact"
+                className="mt-3"
+                onClick={() => setIsOpen(false)}
+              >
+                <Button className="w-full" variant="cyber">
+                  Get a Quote
+                </Button>
+              </Link>
             </div>
           </motion.nav>
         )}

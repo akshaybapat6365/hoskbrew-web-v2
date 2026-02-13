@@ -18,8 +18,8 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="border-b border-retro-accent/30 pb-4 mb-6">
-        <h3 className="font-mono text-retro-phosphor text-sm typing-effect">
+      <div className="border-b border-brand-highlight/30 pb-4 mb-6">
+        <h3 className="font-mono text-brand-primary text-sm typing-effect">
           {">"} ESTABLISH_UPLINK...
         </h3>
       </div>
@@ -28,21 +28,21 @@ export function ContactForm() {
         <div className="space-y-2">
           <label
             htmlFor="name"
-            className="block font-retro text-retro-white text-sm uppercase"
+            className="block font-retro text-brand-text text-sm uppercase"
           >
             IDENTIFIER
           </label>
           <input
             id="name"
             required
-            className="w-full bg-retro-gray/50 border-2 border-retro-white/20 p-3 text-retro-white font-mono focus:border-retro-accent focus:outline-none transition-colors rounded-none placeholder:text-retro-white/20"
+            className="w-full bg-brand-surface/50 border-2 border-brand-text/20 p-3 text-brand-text font-mono focus:border-brand-highlight focus:outline-none transition-colors rounded-none placeholder:text-brand-text/20"
             placeholder="PLAYER 1"
           />
         </div>
         <div className="space-y-2">
           <label
             htmlFor="email"
-            className="block font-retro text-retro-white text-sm uppercase"
+            className="block font-retro text-brand-text text-sm uppercase"
           >
             COMMS_FREQ
           </label>
@@ -50,7 +50,7 @@ export function ContactForm() {
             id="email"
             type="email"
             required
-            className="w-full bg-retro-gray/50 border-2 border-retro-white/20 p-3 text-retro-white font-mono focus:border-retro-accent focus:outline-none transition-colors rounded-none placeholder:text-retro-white/20"
+            className="w-full bg-brand-surface/50 border-2 border-brand-text/20 p-3 text-brand-text font-mono focus:border-brand-highlight focus:outline-none transition-colors rounded-none placeholder:text-brand-text/20"
             placeholder="user@example.com"
           />
         </div>
@@ -59,13 +59,13 @@ export function ContactForm() {
       <div className="space-y-2">
         <label
           htmlFor="project"
-          className="block font-retro text-retro-white text-sm uppercase"
+          className="block font-retro text-brand-text text-sm uppercase"
         >
           MISSION_TYPE
         </label>
         <select
           id="project"
-          className="w-full bg-retro-gray/50 border-2 border-retro-white/20 p-3 text-retro-white font-mono focus:border-retro-accent focus:outline-none transition-colors rounded-none appearance-none"
+          className="w-full bg-brand-surface/50 border-2 border-brand-text/20 p-3 text-brand-text font-mono focus:border-brand-highlight focus:outline-none transition-colors rounded-none appearance-none"
         >
           <option>Manufacturing Inquiry</option>
           <option>Custom Cartridge Design</option>
@@ -77,7 +77,7 @@ export function ContactForm() {
       <div className="space-y-2">
         <label
           htmlFor="message"
-          className="block font-retro text-retro-white text-sm uppercase"
+          className="block font-retro text-brand-text text-sm uppercase"
         >
           DATA_PACKET
         </label>
@@ -85,7 +85,7 @@ export function ContactForm() {
           id="message"
           rows={6}
           required
-          className="w-full bg-retro-gray/50 border-2 border-retro-white/20 p-3 text-retro-white font-mono focus:border-retro-accent focus:outline-none transition-colors rounded-none resize-none placeholder:text-retro-white/20"
+          className="w-full bg-brand-surface/50 border-2 border-brand-text/20 p-3 text-brand-text font-mono focus:border-brand-highlight focus:outline-none transition-colors rounded-none resize-none placeholder:text-brand-text/20"
           placeholder="Input transmission data..."
         />
       </div>
@@ -108,9 +108,9 @@ export function ContactForm() {
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
-          className="bg-retro-phosphor/20 border border-retro-phosphor p-4 mt-4"
+          className="bg-brand-primary/20 border border-brand-primary p-4 mt-4"
         >
-          <p className="text-retro-phosphor font-mono text-center">
+          <p className="text-brand-primary font-mono text-center">
             {">"} PACKET RECEIVED. AWAIT RESPONSE.
           </p>
         </motion.div>

@@ -12,7 +12,7 @@ export default function Hero() {
   const rotate = useTransform(scrollY, [0, 500], [0, 10]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-retro-void">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-brand-bg">
       <Scanline />
 
       <div className="absolute inset-0 perspective-[1000px] pointer-events-none">
@@ -26,21 +26,21 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="space-y-8"
         >
-          <div className="inline-block px-4 py-1 bg-retro-gray/50 border border-retro-white/10 rounded-full">
-            <span className="text-retro-phosphor font-mono text-xs animate-pulse">
+          <div className="inline-block px-4 py-1 bg-brand-surface/50 border border-brand-text/10 rounded-full">
+            <span className="text-brand-primary font-mono text-xs animate-pulse">
               ● SYSTEM READY
             </span>
           </div>
 
-          <h1 className="text-6xl md:text-8xl font-retro text-retro-white leading-[0.9]">
-            LEVEL <span className="text-retro-accent">UP</span>
+          <h1 className="text-6xl md:text-8xl font-retro text-brand-text leading-[0.9]">
+            LEVEL <span className="text-brand-highlight">UP</span>
             <br />
             YOUR <GlitchText text="RETRO" />
           </h1>
 
-          <p className="text-xl font-sans text-retro-white/60 max-w-lg leading-relaxed">
+          <p className="text-xl font-sans text-brand-text/60 max-w-lg leading-relaxed">
             Premium cartridges, manuals, and manufacturing for the{" "}
-            <span className="text-retro-white font-bold">
+            <span className="text-brand-text font-bold">
               homebrew revolution
             </span>
             .
@@ -63,17 +63,17 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.2 }}
           className="relative h-[500px] w-full flex items-center justify-center"
         >
-          <div className="absolute inset-0 bg-retro-accent/5 blur-[100px] rounded-full animate-pulse" />
+          <div className="absolute inset-0 bg-brand-highlight/5 blur-[100px] rounded-full animate-pulse" />
           <motion.div
             animate={{ y: [0, -30, 0] }}
             transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
             className="relative w-full h-full"
           >
             <Image
-              src={AssetRegistry.MASCOT_HERO}
+              src={AssetRegistry.mascot.color}
               alt="Hoskbrew Mascot"
               fill
-              className="object-contain drop-shadow-[0_0_30px_rgba(255,0,85,0.3)]"
+              className="object-contain drop-shadow-[0_0_30px_rgba(199,70,52,0.35)]"
               priority
             />
           </motion.div>
