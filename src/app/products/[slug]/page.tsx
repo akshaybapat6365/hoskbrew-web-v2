@@ -1,11 +1,11 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import { products, getProductBySlug } from "@/data/products";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
+import { ImageLightbox } from "@/components/ui/ImageLightbox";
 
 const PLATFORM_LABELS: Record<string, string> = {
   nes: "NES",
@@ -44,16 +44,7 @@ export default async function ProductDetailPage({ params }: Props) {
       <section className="relative border-b border-brand-border bg-brand-bg-elevated pt-28 pb-16 sm:pt-32 sm:pb-20">
         <Container>
           <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-lg border border-brand-border bg-brand-surface">
-              <Image
-                src={product.image}
-                alt={product.name}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
-              />
-            </div>
+            <ImageLightbox src={product.image} alt={product.name} />
 
             <div className="flex flex-col gap-5">
               <div className="flex items-center gap-3">

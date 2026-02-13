@@ -78,7 +78,7 @@ export function RetroNomiconCTA() {
         >
           <div className="absolute h-72 w-72 rounded-full bg-brand-primary/10 blur-[80px]" />
           <div className="relative h-72 w-72 sm:h-80 sm:w-80">
-            <div className="absolute inset-0 rounded-2xl border border-brand-border bg-brand-bg-elevated shadow-[0_0_0_1px_rgba(0,122,255,0.10)]" />
+            <div className="absolute inset-0 rounded-2xl bg-brand-bg-elevated shadow-[0_0_0_1px_rgba(0,122,255,0.10)] retro-border-glow" />
             <div className="pixel-grid-bg absolute inset-0 rounded-2xl opacity-70" />
             <div className="pointer-events-none absolute inset-0 rounded-2xl crt-scanlines opacity-[0.16]" />
             <div className="absolute inset-3 rounded-xl border border-brand-border/60 bg-brand-surface/35" />

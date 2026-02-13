@@ -27,7 +27,9 @@ export function FinalCTA() {
           className="text-display text-brand-text max-w-3xl"
         >
           Let&apos;s Put Your Game{" "}
-          <span className="text-brand-primary">on a Cartridge</span>
+          <span className="text-brand-primary retro-glow-blue">
+            on a Cartridge
+          </span>
         </motion.h2>
 
         <motion.p variants={staggerItem} className="text-subhead max-w-xl">

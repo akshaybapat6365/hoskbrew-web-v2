@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Section } from "@/components/ui/Section";
 import { ContactForm } from "@/components/ContactForm";
+import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 import { Mail, Clock, MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -40,12 +41,15 @@ export default function ContactPage() {
 
       <Section spacing="loose">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
-          <div className="flex flex-col gap-8 lg:col-span-2">
+          <AnimateOnScroll
+            effect="fadeLeft"
+            className="flex flex-col gap-8 lg:col-span-2"
+          >
             <div className="flex flex-col gap-6">
               {CONTACT_INFO.map((item) => (
                 <div
                   key={item.label}
-                  className="flex items-start gap-4 rounded-lg border border-brand-border bg-brand-bg-elevated p-4"
+                  className="relative overflow-hidden flex items-start gap-4 rounded-lg p-4 retro-border-glow bg-brand-bg-elevated scanline-sweep"
                 >
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-brand-primary/10">
                     <item.icon className="h-5 w-5 text-brand-primary" />
@@ -71,8 +75,8 @@ export default function ContactPage() {
               ))}
             </div>
 
-            <div className="rounded-lg border border-brand-border bg-brand-bg-elevated p-5">
-              <h3 className="mb-3 font-black uppercase tracking-tight text-lg text-brand-text leading-[0.95]">
+            <div className="relative overflow-hidden rounded-lg p-5 retro-border-glow bg-brand-bg-elevated">
+              <h3 className="mb-3 font-black uppercase tracking-tight text-lg text-brand-text leading-[0.95] glitch-hover">
                 What to Include
               </h3>
               <ul className="flex flex-col gap-2 text-sm text-brand-text-muted">
@@ -98,14 +102,18 @@ export default function ContactPage() {
                 </li>
               </ul>
             </div>
-          </div>
+          </AnimateOnScroll>
 
-          <div className="rounded-lg border border-brand-border bg-brand-bg-elevated p-6 lg:col-span-3">
-            <h2 className="mb-6 text-heading text-brand-text">
+          <AnimateOnScroll
+            effect="fadeRight"
+            delay={0.1}
+            className="rounded-lg border border-brand-border bg-brand-bg-elevated p-6 lg:col-span-3 retro-border-glow"
+          >
+            <h2 className="mb-6 text-heading text-brand-text retro-glow-blue">
               Send us a message
             </h2>
             <ContactForm />
-          </div>
+          </AnimateOnScroll>
         </div>
       </Section>
     </>

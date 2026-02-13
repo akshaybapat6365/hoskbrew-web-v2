@@ -107,18 +107,18 @@ export default function Hero() {
               variants={glowPulse}
               initial="hidden"
               animate="show"
-              className="absolute h-[600px] w-[600px] rounded-full bg-brand-primary/10 blur-[120px]"
+              className="absolute h-[480px] w-[480px] rounded-full bg-brand-primary/10 blur-[100px]"
             />
 
-            <div className="absolute h-[560px] w-[560px] rounded-3xl border border-brand-border/70 bg-brand-surface/20 shadow-[inset_0_0_0_1px_rgba(0,122,255,0.10)]" />
-            <div className="pixel-grid-bg absolute h-[560px] w-[560px] rounded-3xl opacity-60" />
-            <div className="pointer-events-none absolute h-[560px] w-[560px] rounded-3xl crt-scanlines opacity-[0.14]" />
+            <div className="absolute h-[400px] w-[400px] sm:h-[440px] sm:w-[440px] rounded-3xl border border-brand-border/70 bg-brand-surface/20 shadow-[inset_0_0_0_1px_rgba(0,122,255,0.10)]" />
+            <div className="pixel-grid-bg absolute h-[400px] w-[400px] sm:h-[440px] sm:w-[440px] rounded-3xl opacity-60" />
+            <div className="pointer-events-none absolute h-[400px] w-[400px] sm:h-[440px] sm:w-[440px] rounded-3xl crt-scanlines opacity-[0.14]" />
 
             <motion.div
               variants={floatAnimation}
               initial="initial"
               animate="float"
-              className="relative h-[500px] w-[500px] sm:h-[600px] sm:w-[600px]"
+              className="relative h-[440px] w-[440px] sm:h-[520px] sm:w-[520px]"
             >
               <Image
                 src={AssetRegistry.mascot.color}

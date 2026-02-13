@@ -31,9 +31,9 @@ export default function Header() {
           <Logo
             variant="horizontal"
             colorMode="white"
-            width={120}
-            height={36}
-            className="max-h-9"
+            width={140}
+            height={42}
+            className="max-h-[42px]"
           />
         </Link>
 
