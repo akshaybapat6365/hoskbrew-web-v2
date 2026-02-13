@@ -58,7 +58,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     } = props;
 
     const classes = cn(
-      "relative inline-flex items-center justify-center rounded-md font-sans transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg disabled:opacity-50 disabled:pointer-events-none cursor-pointer",
+      "relative inline-flex items-center justify-center whitespace-nowrap rounded-md font-sans transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-brand-bg disabled:opacity-50 disabled:pointer-events-none cursor-pointer",
       variantStyles[variant],
       sizeStyles[size],
       fullWidth && "w-full",
