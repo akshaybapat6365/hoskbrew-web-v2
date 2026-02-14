@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Section } from "@/components/ui/Section";
 import { SectionHeader } from "@/components/layout/SectionHeader";
 import { Button } from "@/components/ui/Button";
-import { staggerContainer, staggerItem, fadeInUp } from "@/lib/motion";
+import { staggerContainer, staggerItem } from "@/lib/motion";
 import { services } from "@/data/services";
 import { Cpu, Package, ShieldCheck, Truck } from "lucide-react";
 import type { LucideIcon } from "lucide-react";

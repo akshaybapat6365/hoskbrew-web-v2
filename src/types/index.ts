@@ -8,7 +8,6 @@ export type Product = {
   description: string;
   category: ProductCategory;
   platform: Platform;
-  price: string;
   image: string;
   featured?: boolean;
   specs?: { label: string; value: string }[];
@@ -23,7 +22,6 @@ export type Service = {
   icon: string;
   features: string[];
   leadTime?: string;
-  priceRange?: string;
 };
 
 export type RetroNomiconIssue = {

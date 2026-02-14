@@ -13,8 +13,6 @@ import {
   floatAnimation,
   staggerContainer,
   staggerItem,
-  typewriter,
-  typewriterChar,
 } from "@/lib/motion";
 
 export default function Hero() {
@@ -22,18 +20,21 @@ export default function Hero() {
     "HoskBrew manufactures premium cartridges, packaging, and manuals for indie developers shipping physical games on NES, SNES, Game Boy, GBA, and Genesis.";
 
   return (
-    <section className="pixel-grid-bg relative flex min-h-[92vh] items-center overflow-hidden bg-brand-bg pt-20">
+    <section className="relative flex min-h-[92vh] items-center overflow-hidden bg-brand-bg pt-20">
       <div
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 80% 55% at 72% 38%, rgba(0,122,255,0.14), transparent 60%), radial-gradient(ellipse 60% 42% at 18% 82%, rgba(68,207,108,0.10), transparent 55%)",
+            "radial-gradient(ellipse 78% 62% at 74% 34%, rgba(68,207,108,0.10), transparent 60%), radial-gradient(ellipse 56% 44% at 18% 84%, rgba(0,122,255,0.06), transparent 62%), radial-gradient(ellipse 65% 50% at 52% 18%, rgba(255,255,255,0.03), transparent 64%)",
         }}
       />
 
+      <div className="pointer-events-none absolute inset-0 pixel-grid-bg opacity-[0.45]" />
+      <div className="pointer-events-none absolute inset-0 bg-noise opacity-[0.14]" />
+
       <PixelParticles className="opacity-70" />
 
-      <div className="pointer-events-none absolute inset-0 crt-scanlines opacity-[0.22]" />
+      <div className="pointer-events-none absolute inset-0 crt-scanlines opacity-[0.18]" />
 
       <Container size="wide">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -47,7 +48,7 @@ export default function Hero() {
               variants={staggerItem}
               className="text-label text-brand-accent w-fit"
             >
-              Retro Gaming Hardware & Homebrew
+              Premium Retro Hardware
             </motion.span>
 
             <motion.h1
@@ -55,22 +56,13 @@ export default function Hero() {
               className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter text-brand-text leading-[0.86]"
             >
               Your Game.{" "}
-              <span className="text-brand-primary retro-glow-blue">
-                Real Cartridges.
+              <span className="text-brand-accent retro-glow-green">
+                Real Hardware.
               </span>
             </motion.h1>
 
-            <motion.p
-              variants={typewriter}
-              initial="hidden"
-              animate="show"
-              className="text-subhead max-w-lg whitespace-pre-wrap"
-            >
-              {Array.from(tagline).map((ch, i) => (
-                <motion.span key={`${ch}-${i}`} variants={typewriterChar}>
-                  {ch}
-                </motion.span>
-              ))}
+            <motion.p variants={staggerItem} className="text-subhead max-w-xl">
+              {tagline}
             </motion.p>
 
             <motion.div
@@ -81,7 +73,7 @@ export default function Hero() {
                 Browse Products
               </Button>
               <Button href="/contact" size="lg" variant="outline">
-                Get a Quote
+                Talk to Us
               </Button>
             </motion.div>
 
@@ -91,7 +83,7 @@ export default function Hero() {
             >
               <span className="flex items-center gap-2">
                 <span className="inline-block h-2 w-2 rounded-full bg-brand-accent" />
-                Accepting orders
+                Scheduling builds
               </span>
               <span>NES · SNES · GB · GBA · Genesis</span>
             </motion.div>
@@ -107,26 +99,28 @@ export default function Hero() {
               variants={glowPulse}
               initial="hidden"
               animate="show"
-              className="absolute h-[480px] w-[480px] rounded-full bg-brand-primary/10 blur-[100px]"
+              className="absolute h-[520px] w-[520px] rounded-full bg-brand-accent/10 blur-[110px]"
             />
 
-            <div className="absolute h-[400px] w-[400px] sm:h-[440px] sm:w-[440px] rounded-3xl border border-brand-border/70 bg-brand-surface/20 shadow-[inset_0_0_0_1px_rgba(0,122,255,0.10)]" />
-            <div className="pixel-grid-bg absolute h-[400px] w-[400px] sm:h-[440px] sm:w-[440px] rounded-3xl opacity-60" />
-            <div className="pointer-events-none absolute h-[400px] w-[400px] sm:h-[440px] sm:w-[440px] rounded-3xl crt-scanlines opacity-[0.14]" />
+            <div className="absolute h-[400px] w-[400px] sm:h-[460px] sm:w-[460px] rounded-3xl border border-brand-border/70 bg-brand-surface/15 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)]" />
+            <div className="pointer-events-none absolute h-[400px] w-[400px] sm:h-[460px] sm:w-[460px] rounded-3xl pixel-grid-bg opacity-[0.35]" />
+            <div className="pointer-events-none absolute h-[400px] w-[400px] sm:h-[460px] sm:w-[460px] rounded-3xl bg-noise opacity-[0.10]" />
+            <div className="pointer-events-none absolute h-[400px] w-[400px] sm:h-[460px] sm:w-[460px] rounded-3xl crt-scanlines opacity-[0.10]" />
 
             <motion.div
               variants={floatAnimation}
               initial="initial"
               animate="float"
-              className="relative h-[440px] w-[440px] sm:h-[520px] sm:w-[520px]"
+              className="relative h-[430px] w-[430px] sm:h-[520px] sm:w-[520px]"
             >
               <Image
                 src={AssetRegistry.mascot.color}
                 alt="HoskBrew octopus mascot"
                 fill
-                className="object-contain drop-shadow-[0_0_60px_rgba(0,122,255,0.3)]"
+                className="object-contain drop-shadow-[0_0_44px_rgba(68,207,108,0.18)]"
                 priority
               />
+              <div className="pointer-events-none absolute -bottom-3 left-8 right-8 h-10 rounded-full bg-black/50 blur-xl" />
             </motion.div>
           </motion.div>
         </div>

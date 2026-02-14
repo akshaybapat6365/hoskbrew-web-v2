@@ -43,11 +43,6 @@ export function ProductsPreview() {
               image={product.image}
               href={`/products/${product.slug}`}
               label={PLATFORM_LABELS[product.platform] ?? product.platform}
-              footer={
-                <span className="text-sm font-semibold text-brand-accent">
-                  {product.price}
-                </span>
-              }
             />
           </motion.div>
         ))}

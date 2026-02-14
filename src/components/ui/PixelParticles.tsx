@@ -9,13 +9,25 @@ export type PixelParticlesProps = {
   count?: number;
 };
 
+function mulberry32(seed: number) {
+  let a = seed >>> 0;
+  return () => {
+    a |= 0;
+    a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
 export function PixelParticles({ className, count = 22 }: PixelParticlesProps) {
   const particles = useMemo(() => {
+    const rnd = mulberry32(0x8f3a2c11 ^ count);
     return Array.from({ length: count }, (_, i) => {
-      const r1 = Math.random();
-      const r2 = Math.random();
-      const r3 = Math.random();
-      const r4 = Math.random();
+      const r1 = rnd();
+      const r2 = rnd();
+      const r3 = rnd();
+      const r4 = rnd();
 
       const size = r1 < 0.65 ? 2 : r1 < 0.9 ? 3 : 4;
 

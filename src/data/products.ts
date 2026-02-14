@@ -9,7 +9,6 @@ export const products: Product[] = [
       "Crystal Mines is a brand-new puzzle-action game for the original Game Boy. Navigate treacherous underground caverns, collect crystals, and outsmart enemies across 50 hand-crafted levels. Ships in a premium custom shell with full-color manual and collector's box.",
     category: "game",
     platform: "gb",
-    price: "$59.99",
     image: "/assets/images/Crystal_Mines_Ad.png",
     gallery: [
       "/assets/images/offerings/crystal-mines/01.webp",
@@ -47,7 +46,6 @@ export const products: Product[] = [
       "High-quality injection-molded cartridge shells for the Nintendo Entertainment System. Available in multiple colors with precision-fit tolerances. Perfect for homebrew releases or replacing damaged originals.",
     category: "hardware",
     platform: "nes",
-    price: "$12.99",
     image: "/assets/images/HoskBrew_Full_Color.svg",
     specs: [
       { label: "Material", value: "ABS plastic" },
@@ -64,7 +62,6 @@ export const products: Product[] = [
       "Production-ready printed circuit boards designed for Game Boy homebrew development. Features MBC5 mapper support, battery-backed SRAM, and gold-plated edge connectors for reliable contact.",
     category: "hardware",
     platform: "gb",
-    price: "$8.99",
     image: "/assets/images/HoskBrew_Full_Color.svg",
     specs: [
       { label: "Mapper", value: "MBC5" },
@@ -81,7 +78,6 @@ export const products: Product[] = [
       "Precision-molded Super Nintendo cartridge shells with authentic feel. Designed for homebrew publishers who demand professional fit and finish on their physical releases.",
     category: "hardware",
     platform: "snes",
-    price: "$14.99",
     image: "/assets/images/HoskBrew_Full_Color.svg",
     specs: [
       { label: "Material", value: "ABS plastic" },
@@ -97,7 +93,6 @@ export const products: Product[] = [
       "Custom PCBs for Game Boy Advance development. Supports up to 32 Mbit ROM with optional SRAM or FRAM save storage. Gold-plated connectors ensure years of reliable play.",
     category: "hardware",
     platform: "gba",
-    price: "$11.99",
     image: "/assets/images/HoskBrew_Full_Color.svg",
     specs: [
       { label: "ROM", value: "Up to 32 Mbit" },
@@ -113,7 +108,6 @@ export const products: Product[] = [
       "Replacement cartridge shells for the Sega Genesis and Mega Drive. Authentic form factor with snap-fit design. Available in standard black or custom colors for limited-edition releases.",
     category: "hardware",
     platform: "genesis",
-    price: "$13.99",
     image: "/assets/images/HoskBrew_Full_Color.svg",
     specs: [
       { label: "Material", value: "ABS plastic" },
@@ -129,7 +123,6 @@ export const products: Product[] = [
       "Full-service manual design and printing for your homebrew game. Our designers create authentic-feeling instruction booklets that match the era of your target platform, from NES to GBA.",
     category: "service",
     platform: "multi",
-    price: "From $299",
     image: "/assets/images/HoskBrew_Full_Color.svg",
     specs: [
       { label: "Pages", value: "8–32 pages" },
@@ -146,7 +139,6 @@ export const products: Product[] = [
       "Precision die-cut adhesive labels for all major cartridge formats. Printed on premium vinyl with UV-resistant inks for lasting color. We handle design, proofing, and production.",
     category: "service",
     platform: "multi",
-    price: "From $0.75/ea",
     image: "/assets/images/HoskBrew_Full_Color.svg",
     specs: [
       { label: "Material", value: "Premium vinyl" },

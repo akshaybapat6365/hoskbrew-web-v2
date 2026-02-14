@@ -82,11 +82,6 @@ export default function ServicesPage() {
                           Lead time: {service.leadTime}
                         </span>
                       )}
-                      {service.priceRange && (
-                        <span className="text-sm font-medium text-brand-accent">
-                          {service.priceRange}
-                        </span>
-                      )}
                     </div>
                   </div>
 

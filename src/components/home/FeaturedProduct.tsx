@@ -6,12 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Section } from "@/components/ui/Section";
 import { SectionHeader } from "@/components/layout/SectionHeader";
-import {
-  fadeInLeft,
-  fadeInRight,
-  staggerContainer,
-  staggerItem,
-} from "@/lib/motion";
+import { fadeInLeft, staggerContainer, staggerItem } from "@/lib/motion";
 import { getFeaturedProducts } from "@/data/products";
 
 export function FeaturedProduct() {
@@ -87,9 +82,6 @@ export function FeaturedProduct() {
             >
               View Details
             </Button>
-            <span className="flex items-center text-lg font-semibold text-brand-accent">
-              {featured.price}
-            </span>
           </motion.div>
         </motion.div>
       </div>

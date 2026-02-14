@@ -1,9 +1,10 @@
 import { cn } from "@/lib/utils";
+import type { ReactNode } from "react";
 
 type BadgeVariant = "default" | "primary" | "accent" | "highlight" | "success";
 
 export type BadgeProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   variant?: BadgeVariant;
   className?: string;
 };
@@ -18,9 +19,6 @@ const variantStyles: Record<BadgeVariant, string> = {
   success: "bg-brand-success/15 text-brand-success border-brand-success/30",
 };
 
-/**
- * Small status/category badge for labeling products, services, and content.
- */
 export function Badge({
   children,
   variant = "default",

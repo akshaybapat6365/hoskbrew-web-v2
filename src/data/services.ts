@@ -16,7 +16,6 @@ export const services: Service[] = [
       "Inventory management and fulfillment",
     ],
     leadTime: "4–6 weeks",
-    priceRange: "Contact for quote",
   },
   {
     slug: "packaging-design",
@@ -33,7 +32,6 @@ export const services: Service[] = [
       "Design proofs and revision rounds included",
     ],
     leadTime: "2–3 weeks",
-    priceRange: "From $299",
   },
   {
     slug: "qa-testing",
@@ -50,7 +48,6 @@ export const services: Service[] = [
       "Detailed QA reports with screenshots",
     ],
     leadTime: "1–2 weeks",
-    priceRange: "From $149",
   },
   {
     slug: "fulfillment",
@@ -67,7 +64,6 @@ export const services: Service[] = [
       "Returns handling",
     ],
     leadTime: "Ongoing",
-    priceRange: "Contact for quote",
   },
 ];
 

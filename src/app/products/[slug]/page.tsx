@@ -57,15 +57,11 @@ export default async function ProductDetailPage({ params }: Props) {
               <h1 className="text-display text-brand-text">{product.name}</h1>
               <p className="text-subhead">{product.tagline}</p>
 
-              <span className="text-2xl font-semibold text-brand-accent">
-                {product.price}
-              </span>
-
               <p className="text-body">{product.description}</p>
 
               <div className="flex gap-3 pt-2">
                 <Button href="/contact" variant="primary" size="lg">
-                  Request a Quote
+                  Talk to Us
                 </Button>
                 <Button href="/products" variant="secondary" size="lg">
                   Back to Products

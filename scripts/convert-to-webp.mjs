@@ -1,6 +1,6 @@
-const sharp = require("sharp");
-const fs = require("fs");
-const path = require("path");
+import sharp from "sharp";
+import fs from "node:fs";
+import path from "node:path";
 
 const inputDir = "./public/assets/images/offerings/crystal-mines";
 const outputDir = "./public/assets/images/offerings/crystal-mines";
@@ -32,7 +32,8 @@ async function convertImages() {
         `${file} → ${outputFile}: ${(originalSize / 1024 / 1024).toFixed(2)}MB → ${(newSize / 1024 / 1024).toFixed(2)}MB (${savings}% smaller)`,
       );
     } catch (err) {
-      console.error(`Failed to convert ${file}:`, err.message);
+      const msg = err instanceof Error ? err.message : String(err);
+      console.error(`Failed to convert ${file}:`, msg);
     }
   }
 

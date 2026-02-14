@@ -113,7 +113,7 @@ export default function RetroNomiconPage() {
 
               <div className="flex flex-wrap gap-3 pt-2">
                 <Button variant="accent" size="lg">
-                  Subscribe — $12/yr
+                  Subscribe
                 </Button>
                 <Button variant="ghost" size="lg">
                   Preview PDF

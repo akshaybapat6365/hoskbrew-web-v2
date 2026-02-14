@@ -61,9 +61,6 @@ export default async function ServiceDetailPage({ params }: Props) {
                 {service.leadTime && (
                   <Badge variant="primary">{service.leadTime}</Badge>
                 )}
-                {service.priceRange && (
-                  <Badge variant="accent">{service.priceRange}</Badge>
-                )}
               </div>
             </div>
 

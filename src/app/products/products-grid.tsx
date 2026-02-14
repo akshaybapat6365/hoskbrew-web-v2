@@ -99,11 +99,6 @@ export function ProductsGrid() {
                 image={product.image}
                 href={`/products/${product.slug}`}
                 label={PLATFORM_LABELS[product.platform]}
-                footer={
-                  <span className="text-sm font-semibold text-brand-accent">
-                    {product.price}
-                  </span>
-                }
               />
             </motion.div>
           ))}
