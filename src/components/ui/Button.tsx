@@ -16,11 +16,15 @@ type ButtonBaseProps = {
 
 type ButtonAsButton = ButtonBaseProps &
   Omit<HTMLMotionProps<"button">, keyof ButtonBaseProps> & { href?: never };
-type ButtonAsLink = ButtonBaseProps & {
-  href: string;
-  children?: React.ReactNode;
-  className?: string;
-};
+
+type LinkProps = React.ComponentPropsWithoutRef<typeof Link>;
+
+type ButtonAsLink = ButtonBaseProps &
+  Omit<LinkProps, keyof ButtonBaseProps | "href" | "className" | "children"> & {
+    href: LinkProps["href"];
+    children?: React.ReactNode;
+    className?: string;
+  };
 
 export type ButtonProps = ButtonAsButton | ButtonAsLink;
 
@@ -66,8 +70,11 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     );
 
     if ("href" in props && props.href) {
+      const { href, ...linkProps } = rest as Omit<LinkProps, "className"> & {
+        href: LinkProps["href"];
+      };
       return (
-        <Link href={props.href} className={classes}>
+        <Link href={href} className={classes} {...linkProps}>
           {children as React.ReactNode}
         </Link>
       );

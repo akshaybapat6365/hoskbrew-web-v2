@@ -35,3 +35,31 @@ export type RetroNomiconIssue = {
   topics: string[];
   description: string;
 };
+
+export type OfferingBackdrop = "dark" | "light" | "grid";
+
+export type OfferingGroup = "Packaging" | "Manual" | "Cartridge" | "Bundle";
+
+export type OfferingEdition = "Classic" | "Supernova";
+
+export type OfferingItem = {
+  id: string;
+  title: string;
+  description: string;
+  src: string;
+  alt: string;
+  group: OfferingGroup;
+  edition: OfferingEdition;
+  order: number;
+  recommendedBackdrop?: OfferingBackdrop;
+  tags?: string[];
+};
+
+export type OfferingCollection = {
+  slug: string;
+  name: string;
+  tagline: string;
+  description: string;
+  items: OfferingItem[];
+  defaultBackdrop: OfferingBackdrop;
+};

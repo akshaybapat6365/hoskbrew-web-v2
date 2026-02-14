@@ -76,6 +76,46 @@ export default async function ProductDetailPage({ params }: Props) {
         </Container>
       </section>
 
+      {product.gallery && product.gallery.length > 0 && (
+        <Section background="elevated" spacing="normal">
+          <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-3">
+              <h2 className="text-heading text-brand-text retro-glow-blue">
+                Physical Kit Gallery
+              </h2>
+              <p className="text-subhead max-w-2xl">
+                Packaging, manual, and cartridge presentation assets — click any
+                image to view it full size.
+              </p>
+
+              {slug === "crystal-mines" && (
+                <div className="pt-1">
+                  <Button
+                    href="/products/offerings/crystal-mines"
+                    variant="outline"
+                  >
+                    View Curated Templates
+                  </Button>
+                </div>
+              )}
+            </div>
+
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {product.gallery.map((src, i) => (
+                <ImageLightbox
+                  key={src}
+                  src={src}
+                  alt={`${product.name} gallery image ${i + 1}`}
+                  fit="contain"
+                  backdrop="grid"
+                  className="retro-border-glow"
+                />
+              ))}
+            </div>
+          </div>
+        </Section>
+      )}
+
       {product.specs && product.specs.length > 0 && (
         <Section spacing="normal">
           <h2 className="text-heading text-brand-text mb-8">Specifications</h2>

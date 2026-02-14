@@ -12,7 +12,15 @@ type ImageLightboxProps = {
   className?: string;
   /** Aspect ratio class for thumbnail (default: aspect-[4/3]) */
   aspect?: string;
+  fit?: "cover" | "contain";
+  backdrop?: "dark" | "light" | "grid";
 };
+
+function backdropClasses(backdrop: "dark" | "light" | "grid"): string {
+  if (backdrop === "light") return "bg-[#F0F0F0]";
+  if (backdrop === "grid") return "bg-brand-bg-elevated pixel-grid-bg";
+  return "bg-brand-bg-elevated";
+}
 
 /**
  * @description Product image with click-to-expand fullscreen lightbox overlay.
@@ -23,6 +31,8 @@ export function ImageLightbox({
   alt,
   className = "",
   aspect = "aspect-[4/3]",
+  fit = "cover",
+  backdrop = "dark",
 }: ImageLightboxProps) {
   const [open, setOpen] = useState(false);
 
@@ -53,14 +63,18 @@ export function ImageLightbox({
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className={`group relative cursor-zoom-in overflow-hidden rounded-lg border border-brand-border bg-brand-surface transition-all duration-300 hover:border-brand-primary/60 hover:shadow-[0_0_0_1px_rgba(0,122,255,0.22),0_0_36px_rgba(0,122,255,0.14)] ${aspect} ${className}`}
+        className={`group relative cursor-zoom-in overflow-hidden rounded-lg border border-brand-border transition-all duration-300 hover:border-brand-primary/60 hover:shadow-[0_0_0_1px_rgba(0,122,255,0.22),0_0_36px_rgba(0,122,255,0.14)] ${backdropClasses(backdrop)} ${aspect} ${className}`}
         aria-label={`View ${alt} fullscreen`}
       >
         <Image
           src={src}
           alt={alt}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          className={
+            fit === "contain"
+              ? "object-contain p-5 transition-transform duration-500 group-hover:scale-[1.02]"
+              : "object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          }
           sizes="(max-width: 1024px) 100vw, 50vw"
           priority
         />
