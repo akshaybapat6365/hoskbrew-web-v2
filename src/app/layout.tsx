@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Pixelify_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
@@ -10,16 +10,42 @@ import {
 } from "@/components/ui/Overlays";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: [
+    {
+      path: "../../public/fonts/inter/Inter-Light.ttf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/inter/Inter-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/inter/Inter-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/inter/Inter-SemiBold.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/inter/Inter-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/inter/Inter-Black.ttf",
+      weight: "900",
+      style: "normal",
+    },
+  ],
   variable: "--font-inter",
   display: "swap",
-});
-const pixel = Pixelify_Sans({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-pixel",
-  display: "swap",
+  fallback: ["system-ui", "sans-serif"],
 });
 
 export const metadata: Metadata = {
@@ -36,7 +62,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${pixel.variable} bg-brand-bg text-brand-text antialiased overflow-x-hidden flex flex-col min-h-screen`}
+        className={`${inter.variable} bg-brand-bg text-brand-text antialiased overflow-x-hidden flex flex-col min-h-screen`}
       >
         <NoiseOverlay opacity={0.04} />
         <PixelGridOverlay />

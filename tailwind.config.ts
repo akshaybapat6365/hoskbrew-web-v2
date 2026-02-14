@@ -39,7 +39,6 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],
-        retro: ["var(--font-pixel)", "monospace"],
         mono: ["var(--font-mono)"],
       },
       backgroundImage: {

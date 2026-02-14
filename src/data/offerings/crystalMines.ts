@@ -1,6 +1,7 @@
 import type { OfferingCollection } from "@/types";
 
 const BASE = "/assets/images/offerings/crystal-mines";
+const EXT = ".webp";
 
 export const crystalMinesOffering = {
   slug: "crystal-mines",
@@ -14,7 +15,7 @@ export const crystalMinesOffering = {
       id: "cm-box-classic-3d-upright",
       title: "Classic Box (3D)",
       description: "Premium retail box mockup in the Classic colorway.",
-      src: `${BASE}/01.png`,
+      src: `${BASE}/01${EXT}`,
       alt: "Crystal Mines Classic edition retail box front (3D mockup)",
       group: "Packaging",
       edition: "Classic",
@@ -26,7 +27,7 @@ export const crystalMinesOffering = {
       id: "cm-box-supernova-3d-upright",
       title: "Supernova Box (3D)",
       description: "Premium retail box mockup in the Supernova colorway.",
-      src: `${BASE}/02.png`,
+      src: `${BASE}/02${EXT}`,
       alt: "Crystal Mines Supernova edition retail box front (3D mockup)",
       group: "Packaging",
       edition: "Supernova",
@@ -38,7 +39,7 @@ export const crystalMinesOffering = {
       id: "cm-box-classic-3d-angle",
       title: "Classic Box (Angle)",
       description: "Angled mockup showing depth, spine, and print finish.",
-      src: `${BASE}/03.png`,
+      src: `${BASE}/03${EXT}`,
       alt: "Crystal Mines Classic edition retail box angled mockup",
       group: "Packaging",
       edition: "Classic",
@@ -50,7 +51,7 @@ export const crystalMinesOffering = {
       id: "cm-box-supernova-3d-angle",
       title: "Supernova Box (Angle)",
       description: "Angled mockup showing depth, spine, and print finish.",
-      src: `${BASE}/04.png`,
+      src: `${BASE}/04${EXT}`,
       alt: "Crystal Mines Supernova edition retail box angled mockup",
       group: "Packaging",
       edition: "Supernova",
@@ -62,7 +63,7 @@ export const crystalMinesOffering = {
       id: "cm-box-classic-front-panel",
       title: "Classic Front Panel",
       description: "Front panel layout for print-ready packaging production.",
-      src: `${BASE}/05.png`,
+      src: `${BASE}/05${EXT}`,
       alt: "Crystal Mines Classic edition retail box front panel flat view",
       group: "Packaging",
       edition: "Classic",
@@ -74,7 +75,7 @@ export const crystalMinesOffering = {
       id: "cm-box-classic-back-panel",
       title: "Classic Back Panel",
       description: "Back panel with copy, screenshots, and spec callouts.",
-      src: `${BASE}/06.png`,
+      src: `${BASE}/06${EXT}`,
       alt: "Crystal Mines Classic edition retail box back panel flat view",
       group: "Packaging",
       edition: "Classic",
@@ -86,7 +87,7 @@ export const crystalMinesOffering = {
       id: "cm-box-supernova-front-panel",
       title: "Supernova Front Panel",
       description: "Front panel layout for print-ready packaging production.",
-      src: `${BASE}/07.png`,
+      src: `${BASE}/07${EXT}`,
       alt: "Crystal Mines Supernova edition retail box front panel flat view",
       group: "Packaging",
       edition: "Supernova",
@@ -98,7 +99,7 @@ export const crystalMinesOffering = {
       id: "cm-box-supernova-back-panel",
       title: "Supernova Back Panel",
       description: "Back panel with copy, screenshots, and spec callouts.",
-      src: `${BASE}/08.png`,
+      src: `${BASE}/08${EXT}`,
       alt: "Crystal Mines Supernova edition retail box back panel flat view",
       group: "Packaging",
       edition: "Supernova",
@@ -111,7 +112,7 @@ export const crystalMinesOffering = {
       title: "Classic Manual Cover",
       description:
         "Instruction manual cover design aligned to the Classic box art.",
-      src: `${BASE}/09.png`,
+      src: `${BASE}/09${EXT}`,
       alt: "Crystal Mines Classic edition instruction manual cover",
       group: "Manual",
       edition: "Classic",
@@ -124,7 +125,7 @@ export const crystalMinesOffering = {
       title: "Supernova Manual Cover",
       description:
         "Instruction manual cover design aligned to the Supernova box art.",
-      src: `${BASE}/10.png`,
+      src: `${BASE}/10${EXT}`,
       alt: "Crystal Mines Supernova edition instruction manual cover",
       group: "Manual",
       edition: "Supernova",
@@ -137,7 +138,7 @@ export const crystalMinesOffering = {
       title: "Classic Kit (Branded)",
       description:
         "Full kit presentation: box, cartridge, manual, and branded add-on box.",
-      src: `${BASE}/11.png`,
+      src: `${BASE}/11${EXT}`,
       alt: "Crystal Mines Classic edition full kit presentation with branded add-on box",
       group: "Bundle",
       edition: "Classic",
@@ -150,7 +151,7 @@ export const crystalMinesOffering = {
       title: "Classic Kit (Blank)",
       description:
         "Full kit presentation with a blank add-on box for white-label use.",
-      src: `${BASE}/12.png`,
+      src: `${BASE}/12${EXT}`,
       alt: "Crystal Mines Classic edition full kit presentation with blank add-on box",
       group: "Bundle",
       edition: "Classic",
@@ -163,7 +164,7 @@ export const crystalMinesOffering = {
       title: "Supernova Kit (Branded)",
       description:
         "Full kit presentation: box, cartridge, manual, and branded add-on box.",
-      src: `${BASE}/13.png`,
+      src: `${BASE}/13${EXT}`,
       alt: "Crystal Mines Supernova edition full kit presentation with branded add-on box",
       group: "Bundle",
       edition: "Supernova",
@@ -176,7 +177,7 @@ export const crystalMinesOffering = {
       title: "Supernova Kit (Blank)",
       description:
         "Full kit presentation with a blank add-on box for white-label use.",
-      src: `${BASE}/14.png`,
+      src: `${BASE}/14${EXT}`,
       alt: "Crystal Mines Supernova edition full kit presentation with blank add-on box",
       group: "Bundle",
       edition: "Supernova",
@@ -189,7 +190,7 @@ export const crystalMinesOffering = {
       title: "Classic Cartridge Label",
       description:
         "Cartridge label close-up on a premium shell — production-ready look.",
-      src: `${BASE}/15.png`,
+      src: `${BASE}/15${EXT}`,
       alt: "Crystal Mines Classic edition cartridge label close-up",
       group: "Cartridge",
       edition: "Classic",
@@ -202,7 +203,7 @@ export const crystalMinesOffering = {
       title: "Supernova Cartridge Label",
       description:
         "Cartridge label close-up on a premium shell — production-ready look.",
-      src: `${BASE}/16.png`,
+      src: `${BASE}/16${EXT}`,
       alt: "Crystal Mines Supernova edition cartridge label close-up",
       group: "Cartridge",
       edition: "Supernova",

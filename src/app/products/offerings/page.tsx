@@ -60,7 +60,7 @@ export default function OfferingsIndexPage() {
 
                 <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-brand-border bg-brand-bg">
                   <Image
-                    src="/assets/images/offerings/crystal-mines/11.png"
+                    src="/assets/images/offerings/crystal-mines/11.webp"
                     alt="Crystal Mines full kit presentation preview"
                     fill
                     className="object-contain p-6 transition-transform duration-500 group-hover:scale-[1.02]"
