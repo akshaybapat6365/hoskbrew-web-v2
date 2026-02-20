@@ -19,14 +19,15 @@ const iconMap: Record<string, LucideIcon> = {
  */
 export function ServicesOverview() {
   return (
-    <section className="relative border-t border-white/10 bg-[#11192C] py-10 sm:py-12">
+    <section className="relative bg-[#11192C] py-20 sm:py-24 border-t border-white/10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-6 sm:mb-8">
+        {/* Section header - left-aligned */}
+        <div className="mb-12">
           <span className="text-xs uppercase tracking-widest text-white/40 font-medium mb-3 block">
             What We Do
           </span>
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <h2 className="text-2xl font-black uppercase leading-[0.92] tracking-tight text-white md:text-3xl">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white leading-[0.92]">
               End-to-End Manufacturing
             </h2>
             <Button href="/services" variant="outline" size="md">
@@ -35,14 +36,14 @@ export function ServicesOverview() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 sm:grid-cols-3 lg:grid-cols-5">
-          {services.map((service, idx) => {
+        {/* 5-column service cards */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-white/10 rounded-xl overflow-hidden border border-white/10">
+          {services.map((service) => {
             const Icon = iconMap[service.icon] ?? Cpu;
-            const isLast = idx === services.length - 1;
             return (
               <div
                 key={service.slug}
-                className={`group flex flex-col gap-3 bg-[#11192C] p-4 transition-colors duration-300 hover:bg-white/[0.04] sm:p-5${isLast ? " col-span-2 sm:col-span-2 lg:col-span-1" : ""}`}
+                className="group flex flex-col gap-3 p-5 bg-[#11192C] hover:bg-white/[0.04] transition-colors duration-300"
               >
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10">
                   <Icon className="h-3.5 w-3.5 text-brand-primary" />
