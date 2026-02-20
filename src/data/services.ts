@@ -2,68 +2,68 @@ import type { Service } from "@/types";
 
 export const services: Service[] = [
   {
+    slug: "circuit-boards",
+    name: "Circuit Boards",
+    tagline: "High quality PCBs and flashing",
+    description:
+      "Source PCBs directly through us and have us flash your ROMs on site during assembly. We work with you to test your ROMs for quality assurance.",
+    icon: "cpu",
+    features: ["PCBs for most popular systems", "Unique PCBs available"],
+  },
+  {
     slug: "cartridge-manufacturing",
     name: "Cartridge Manufacturing",
-    tagline: "From prototype to production run",
+    tagline: "High quality injection molding, US manufacturing.",
     description:
-      "End-to-end cartridge manufacturing for NES, SNES, Game Boy, GBA, and Genesis. We handle PCB fabrication, ROM flashing, shell molding, assembly, and quality testing. Whether you need 50 units or 5,000, we deliver production-quality cartridges ready for retail.",
-    icon: "cpu",
+      "Whether you need PCBs or supply your own we can manage full cartridge production with PCBs and Shells for most popular retro systems. Huge selection of colors, including transparent and glow in the dark!",
+    icon: "package",
     features: [
-      "PCB fabrication with gold-plated connectors",
-      "ROM programming and verification",
-      "Custom shell colors and finishes",
-      "Rigorous QA testing on real hardware",
-      "Inventory management and fulfillment",
+      "Shells for most Retro-Systems",
+      "Custom colors and finishes",
+      "High quality art labels",
+      "With or Without OEM Logos",
+      "Dust Sleeves available",
     ],
-    leadTime: "4–6 weeks",
   },
   {
     slug: "packaging-design",
-    name: "Packaging & Design",
-    tagline: "Authentic packaging that sells",
+    name: "Packaging Design",
+    tagline: "Professional packaging options",
     description:
-      "Professional packaging design that captures the look and feel of each console era. From NES-style cardboard boxes to GBA clamshells, we design and print packaging that makes your release feel like it belongs on a store shelf in 1992.",
-    icon: "package",
+      "Authentic replica packaging for that classic look or new packaging designed to be practical and attractive. From NES-style cardboard boxes to GBA clamshells, and Sega plastic cases. Complete your packaging with manuals and spacing inserts.",
+    icon: "box",
     features: [
-      "Era-accurate box design (NES, SNES, GB, GBA, Genesis)",
-      "Full-color instruction manual design",
-      "Die-cut label printing on premium vinyl",
-      "Insert cards, stickers, and extras",
-      "Design proofs and revision rounds included",
+      "Era-accurate box designs",
+      "Full-color instruction manual printing",
+      "Inserts and extras",
+      "Shrink wrapping available",
     ],
-    leadTime: "2–3 weeks",
   },
   {
-    slug: "qa-testing",
-    name: "QA & Testing",
-    tagline: "Every cartridge tested on real hardware",
-    description:
-      "Comprehensive quality assurance testing on original console hardware. Every cartridge is verified for boot, gameplay, save functionality, and edge cases. We catch the bugs that emulators miss.",
-    icon: "shield-check",
-    features: [
-      "Boot and load testing on original hardware",
-      "Save/load cycle verification",
-      "Multi-region compatibility testing",
-      "Edge case and stress testing",
-      "Detailed QA reports with screenshots",
-    ],
-    leadTime: "1–2 weeks",
-  },
-  {
-    slug: "fulfillment",
+    slug: "fulfillment-distribution",
     name: "Fulfillment & Distribution",
     tagline: "We ship so you can focus on creating",
     description:
-      "Warehousing, pick-and-pack, and worldwide shipping for your homebrew releases. We integrate with your online store to handle orders automatically, from individual collectors to bulk distributor orders.",
+      "Warehousing, pick-and-pack, and worldwide shipping for your homebrew releases. Doing a crowdfunding campaign or a large initial release? We can fulfill your shipping list right from our warehouse. Otherwise we freight ship to your door.",
     icon: "truck",
     features: [
-      "Climate-controlled warehousing",
-      "Pick, pack, and ship worldwide",
-      "Store integration (Shopify, BigCommerce, custom)",
+      "Pick pack and ship worldwide",
       "Tracking and delivery confirmation",
-      "Returns handling",
+      "Bulk or Freight Shipping",
     ],
-    leadTime: "Ongoing",
+  },
+  {
+    slug: "bonus-parts",
+    name: "Bonus Parts",
+    tagline: "Offer something special to your customers",
+    description:
+      "Custom controller or system shell parts add a unique offering to accompany your games. Have any ideas, always ask - we love to fulfill special requests!",
+    icon: "sparkles",
+    features: [
+      "Controller Shells & buttons",
+      "System Shells",
+      "Custom parts request",
+    ],
   },
 ];
 
