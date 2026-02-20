@@ -47,7 +47,7 @@ export const services: Service[] = [
       "Warehousing, pick-and-pack, and worldwide shipping for your homebrew releases. Doing a crowdfunding campaign or a large initial release? We can fulfill your shipping list right from our warehouse. Otherwise we freight ship to your door.",
     icon: "truck",
     features: [
-      "Pick pack and ship worldwide",
+      "Pick, pack, and ship worldwide",
       "Tracking and delivery confirmation",
       "Bulk or Freight Shipping",
     ],
@@ -57,7 +57,7 @@ export const services: Service[] = [
     name: "Bonus Parts",
     tagline: "Offer something special to your customers",
     description:
-      "Custom controller or system shell parts add a unique offering to accompany your games. Have any ideas, always ask - we love to fulfill special requests!",
+      "Custom controller or system shell parts add a unique offering to accompany your games. Have any ideas? always ask — we love to fulfill special requests!",
     icon: "sparkles",
     features: [
       "Controller Shells & buttons",

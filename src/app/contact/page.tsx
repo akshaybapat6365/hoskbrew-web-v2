@@ -1,8 +1,5 @@
 import { Metadata } from "next";
-import { PageHeader } from "@/components/layout/PageHeader";
-import { Section } from "@/components/ui/Section";
 import { ContactForm } from "@/components/ContactForm";
-import { AnimateOnScroll } from "@/components/ui/AnimateOnScroll";
 import { Mail, Clock, MapPin } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -33,89 +30,91 @@ const CONTACT_INFO = [
 export default function ContactPage() {
   return (
     <>
-      <PageHeader
-        title="Get in Touch"
-        subtitle="Whether you need a quote for cartridge manufacturing, have questions about our services, or want to discuss a custom project — we're here to help."
-        label="Contact"
-      />
-
-      <Section spacing="loose">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
-          <AnimateOnScroll
-            effect="fadeLeft"
-            className="flex flex-col gap-8 lg:col-span-2"
-          >
-            <div className="flex flex-col gap-6">
-              {CONTACT_INFO.map((item) => (
-                <div
-                  key={item.label}
-                  className="relative overflow-hidden flex items-start gap-4 rounded-lg p-4 retro-border-glow bg-brand-bg-elevated scanline-sweep"
-                >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-brand-primary/10">
-                    <item.icon className="h-5 w-5 text-brand-primary" />
-                  </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-wide text-brand-text-dim">
-                      {item.label}
-                    </p>
-                    {item.href ? (
-                      <a
-                        href={item.href}
-                        className="text-sm font-medium text-brand-text hover:text-brand-primary transition-colors"
-                      >
-                        {item.value}
-                      </a>
-                    ) : (
-                      <p className="text-sm font-medium text-brand-text">
-                        {item.value}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="relative overflow-hidden rounded-lg p-5 retro-border-glow bg-brand-bg-elevated">
-              <h3 className="mb-3 font-black uppercase tracking-tight text-lg text-brand-text leading-[0.95] glitch-hover">
-                What to Include
-              </h3>
-              <ul className="flex flex-col gap-2 text-sm text-brand-text-muted">
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-accent" />
-                  Target platform(s) — NES, SNES, GB, GBA, Genesis
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-accent" />
-                  Estimated quantity needed
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-accent" />
-                  ROM size and mapper requirements
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-accent" />
-                  Packaging needs (shell, manual, box, labels)
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-accent" />
-                  Target timeline for delivery
-                </li>
-              </ul>
-            </div>
-          </AnimateOnScroll>
-
-          <AnimateOnScroll
-            effect="fadeRight"
-            delay={0.1}
-            className="rounded-lg border border-brand-border bg-brand-bg-elevated p-6 lg:col-span-3 retro-border-glow"
-          >
-            <h2 className="mb-6 text-heading text-brand-text retro-glow-blue">
-              Send us a message
-            </h2>
-            <ContactForm />
-          </AnimateOnScroll>
+      <section className="relative bg-[#11192C] pt-28 pb-16 sm:pt-32 sm:pb-20 border-b border-white/10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center text-center gap-4">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white leading-[0.9]">
+              Get in Touch
+            </h1>
+            <p className="text-white/60 max-w-2xl text-base">
+              Whether you need a quote for cartridge manufacturing, have questions
+              about our services, or want to discuss a custom project — we&apos;re
+              here to help.
+            </p>
+          </div>
         </div>
-      </Section>
+      </section>
+
+      <section className="bg-[#0a0a0f] py-16 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
+            <div className="flex flex-col gap-6 lg:col-span-2">
+              <div className="flex flex-col gap-4">
+                {CONTACT_INFO.map((item) => (
+                  <div
+                    key={item.label}
+                    className="flex items-start gap-4 rounded-lg p-4 bg-white/5 border border-white/10"
+                  >
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-white/10">
+                      <item.icon className="h-5 w-5 text-white/70" />
+                    </div>
+                    <div>
+                      <p className="text-xs uppercase tracking-wide text-white/40">
+                        {item.label}
+                      </p>
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          className="text-sm font-medium text-white hover:text-white/80 transition-colors"
+                        >
+                          {item.value}
+                        </a>
+                      ) : (
+                        <p className="text-sm font-medium text-white">{item.value}</p>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="rounded-lg p-5 bg-white/5 border border-white/10">
+                <h3 className="mb-4 font-black uppercase tracking-tight text-lg text-white">
+                  What to Include
+                </h3>
+                <ul className="flex flex-col gap-2 text-sm text-white/50">
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-primary" />
+                    Target platform(s) — NES, SNES, GB, GBA, Genesis
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-primary" />
+                    Estimated quantity needed
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-primary" />
+                    ROM size and mapper requirements
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-primary" />
+                    Packaging needs (shell, manual, box, labels)
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-primary" />
+                    Target timeline for delivery
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="rounded-lg border border-white/10 bg-white/5 p-6 lg:col-span-3">
+              <h2 className="mb-6 text-2xl md:text-3xl font-black uppercase tracking-tight text-white">
+                Send us a message
+              </h2>
+              <ContactForm />
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
