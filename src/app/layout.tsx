@@ -65,7 +65,7 @@ const inter = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "HoskBrew — Retro Gaming Cartridge Manufacturing",
+  title: "HoskBrew - Retro Gaming Cartridge Manufacturing",
   description:
     "Custom cartridge manufacturing, PCB fabrication, and full-service production for indie retro game developers. Makers of Crystal Mines.",
 };

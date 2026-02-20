@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/Button";
-import { staggerContainer, staggerItem } from "@/lib/motion";
 import { services } from "@/data/services";
 import {
   Cpu,
@@ -22,17 +20,17 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 /**
- * Homepage services overview — dark background (#11192C), displays all 5 services.
+ * Homepage services overview - 5 column grid with simplified cards
  */
 export function ServicesOverview() {
   return (
-    <section className="relative bg-[#11192C] py-24 sm:py-28">
+    <section className="relative bg-[#11192C] py-16 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
-          className="mb-12 flex flex-col items-center text-center gap-3"
+          className="mb-10 flex flex-col items-center text-center gap-3"
         >
           <span className="text-sm uppercase tracking-widest text-white/50 font-medium">
             Services
@@ -42,45 +40,41 @@ export function ServicesOverview() {
           </h2>
           <p className="text-white/60 max-w-2xl text-base">
             End-to-end manufacturing, packaging, quality assurance, and
-            fulfillment — everything you need to ship your retro game on real
+            fulfillment. Everything you need to ship your retro game on real
             cartridges.
           </p>
         </motion.div>
 
         <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4"
         >
-          {services.map((service) => {
+          {services.map((service, i) => {
             const Icon = iconMap[service.icon] ?? Cpu;
             return (
               <motion.div
                 key={service.slug}
-                variants={staggerItem}
-                className="group flex flex-col gap-4 rounded-lg p-6 transition-all duration-300 bg-white/5 hover:bg-white/10 border border-white/10"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+                className="group flex flex-col items-center text-center gap-3 rounded-lg p-4 transition-all duration-300 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20"
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-md bg-white/10">
                   <Icon className="h-5 w-5 text-white/80" />
                 </div>
-                <h3 className="font-sans font-black uppercase text-lg text-white leading-[0.95] tracking-tight">
+                <h3 className="font-sans font-black uppercase text-sm text-white leading-[0.95] tracking-tight">
                   {service.name}
                 </h3>
-                <p className="text-sm leading-relaxed text-white/60">
+                <p className="text-xs leading-relaxed text-white/50">
                   {service.tagline}
                 </p>
               </motion.div>
             );
           })}
         </motion.div>
-
-        <div className="mt-10 flex justify-center">
-          <Button href="/services" variant="primary" size="lg">
-            Explore Services
-          </Button>
-        </div>
       </div>
     </section>
   );

@@ -24,7 +24,7 @@ export default function Hero() {
               <span className="block">REAL HARDWARE.</span>
             </h1>
             <p className="text-lg md:text-xl text-[#11192C]/70 mb-8 max-w-lg font-sans">
-              From ROM to Retail — we manufacture, package, and ship your retro
+              From ROM to Retail, we manufacture, package, and ship your retro
               game on real cartridges.
             </p>
 

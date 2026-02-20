@@ -50,7 +50,7 @@ export default function AboutPage() {
     <>
       <PageHeader
         title="About HoskBrew"
-        subtitle="We help indie developers bring their retro games to life on real cartridges — from prototype to production."
+        subtitle="We help indie developers bring their retro games to life on real cartridges, from prototype to production."
         label="Our Story"
       />
 
@@ -69,11 +69,11 @@ export default function AboutPage() {
                 results.
               </p>
               <p className="text-body max-w-xl">
-                So we built the infrastructure ourselves — from custom PCB
-                designs and injection molds to a full QA lab with every major
-                retro console. Today, we serve homebrew developers worldwide,
-                handling everything from a single prototype to full production
-                runs of thousands of units.
+                So we built the infrastructure ourselves from custom PCB designs
+                and injection molds to a full QA lab with every major retro
+                console. Today, we serve homebrew developers worldwide, handling
+                everything from a single prototype to full production runs of
+                thousands of units.
               </p>
             </div>
           </AnimateOnScroll>

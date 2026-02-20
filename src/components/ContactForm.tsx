@@ -48,7 +48,7 @@ export function ContactForm() {
 
       <Textarea
         label="Message"
-        placeholder="Tell us about your project — platform, quantity, timeline, and any specific requirements."
+        placeholder="Tell us about your project including platform, quantity, timeline, and any specific requirements."
         required
       />
 

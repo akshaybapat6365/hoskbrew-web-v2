@@ -28,13 +28,14 @@ export default function RetroNomiconPage() {
     <>
       <PageHeader
         title="RetroNomicon"
-        subtitle="The indie developer's quarterly guide to retro game development — tutorials, hardware deep dives, and community spotlights."
+        subtitle="The indie developer's quarterly guide to retro game development with tutorials, hardware deep dives, and community spotlights."
         label="Publication"
       />
 
       <Section spacing="loose">
         <div className="relative">
-          <div className="relative bg-brand-surface border-4 border-brand-border p-8 md:p-12"
+          <div
+            className="relative bg-brand-surface border-4 border-brand-border p-8 md:p-12"
             style={{ boxShadow: "0 0 60px rgba(0, 212, 255, 0.1)" }}
           >
             <div className="absolute -top-2 -left-2 w-8 h-8 border-t-4 border-l-4 border-brand-primary" />
@@ -87,7 +88,8 @@ export default function RetroNomiconPage() {
 
                   <div className="absolute inset-0 crt-scanlines opacity-10 pointer-events-none" />
 
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-brand-primary to-brand-primary-dark p-6"
+                  <div
+                    className="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-brand-primary to-brand-primary-dark p-6"
                     style={{ boxShadow: "0 -10px 40px rgba(0, 212, 255, 0.3)" }}
                   >
                     <h2 className="font-pixel uppercase tracking-wide text-2xl md:text-3xl text-brand-bg leading-tight">
@@ -136,15 +138,27 @@ export default function RetroNomiconPage() {
                   </ol>
 
                   <div className="flex flex-wrap gap-3 pt-4">
-                    <Button variant="arcade" size="lg" className="flex items-center gap-2">
+                    <Button
+                      variant="arcade"
+                      size="lg"
+                      className="flex items-center gap-2"
+                    >
                       <Mail className="w-4 h-4" />
                       Subscribe
                     </Button>
-                    <Button variant="outline" size="lg" className="flex items-center gap-2">
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="flex items-center gap-2"
+                    >
                       <BookOpen className="w-4 h-4" />
                       Preview
                     </Button>
-                    <Button variant="ghost" size="lg" className="flex items-center gap-2">
+                    <Button
+                      variant="ghost"
+                      size="lg"
+                      className="flex items-center gap-2"
+                    >
                       <Download className="w-4 h-4" />
                       Download PDF
                     </Button>

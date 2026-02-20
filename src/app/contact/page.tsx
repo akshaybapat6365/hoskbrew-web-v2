@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
-import { Mail, Clock, MapPin } from "lucide-react";
+import { Mail, Clock, MapPin, Gamepad2, Package, Microchip, Box, Truck } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contact | HoskBrew",
@@ -27,6 +27,34 @@ const CONTACT_INFO = [
   },
 ];
 
+const WHAT_TO_INCLUDE = [
+  {
+    icon: Gamepad2,
+    title: "Platform",
+    description: "NES, SNES, GB, GBA, Genesis",
+  },
+  {
+    icon: Package,
+    title: "Quantity",
+    description: "Estimated units needed",
+  },
+  {
+    icon: Microchip,
+    title: "ROM Specs",
+    description: "Size and mapper requirements",
+  },
+  {
+    icon: Box,
+    title: "Packaging",
+    description: "Shell, manual, box, labels",
+  },
+  {
+    icon: Truck,
+    title: "Timeline",
+    description: "Target delivery date",
+  },
+];
+
 export default function ContactPage() {
   return (
     <>
@@ -38,17 +66,18 @@ export default function ContactPage() {
             </h1>
             <p className="text-white/60 max-w-2xl text-base">
               Whether you need a quote for cartridge manufacturing, have questions
-              about our services, or want to discuss a custom project — we&apos;re
+              about our services, or want to discuss a custom project, we&apos;re
               here to help.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="bg-[#0a0a0f] py-16 sm:py-20">
+      <section className="bg-[#11192C] py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-5">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-5">
             <div className="flex flex-col gap-6 lg:col-span-2">
+              {/* Contact Info Cards */}
               <div className="flex flex-col gap-4">
                 {CONTACT_INFO.map((item) => (
                   <div
@@ -77,32 +106,28 @@ export default function ContactPage() {
                 ))}
               </div>
 
+              {/* What to Include - Card Grid (No Bullets) */}
               <div className="rounded-lg p-5 bg-white/5 border border-white/10">
-                <h3 className="mb-4 font-black uppercase tracking-tight text-lg text-white">
+                <h3 className="mb-4 font-black uppercase tracking-tight text-lg text-white"
+                >
                   What to Include
                 </h3>
-                <ul className="flex flex-col gap-2 text-sm text-white/50">
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-primary" />
-                    Target platform(s) — NES, SNES, GB, GBA, Genesis
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-primary" />
-                    Estimated quantity needed
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-primary" />
-                    ROM size and mapper requirements
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-primary" />
-                    Packaging needs (shell, manual, box, labels)
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-primary" />
-                    Target timeline for delivery
-                  </li>
-                </ul>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {WHAT_TO_INCLUDE.map((item) => (
+                    <div
+                      key={item.title}
+                      className="flex items-start gap-3 rounded-md p-3 bg-white/5"
+                    >
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded bg-white/10">
+                        <item.icon className="h-4 w-4 text-cyan-400" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-white">{item.title}</p>
+                        <p className="text-xs text-white/50">{item.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 

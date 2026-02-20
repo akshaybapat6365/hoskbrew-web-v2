@@ -189,7 +189,7 @@ export const crystalMinesOffering = {
       id: "cm-cartridge-classic-closeup",
       title: "Classic Cartridge Label",
       description:
-        "Cartridge label close-up on a premium shell — production-ready look.",
+        "Cartridge label close-up on a premium shell showing production-ready look.",
       src: `${BASE}/15${EXT}`,
       alt: "Crystal Mines Classic edition cartridge label close-up",
       group: "Cartridge",
@@ -202,7 +202,7 @@ export const crystalMinesOffering = {
       id: "cm-cartridge-supernova-closeup",
       title: "Supernova Cartridge Label",
       description:
-        "Cartridge label close-up on a premium shell — production-ready look.",
+        "Cartridge label close-up on a premium shell showing production-ready look.",
       src: `${BASE}/16${EXT}`,
       alt: "Crystal Mines Supernova edition cartridge label close-up",
       group: "Cartridge",
