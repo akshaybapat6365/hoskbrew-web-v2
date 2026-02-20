@@ -33,8 +33,8 @@ export default function Footer() {
               <Logo
                 variant="stacked"
                 colorMode="white"
-                width={40}
-                height={20}
+                width={20}
+                height={10}
               />
             </Link>
             <p className="text-xs text-white/40">
