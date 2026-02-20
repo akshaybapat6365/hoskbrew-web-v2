@@ -29,15 +29,9 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4">
-              <Button href="/services" variant="primary" size="lg">
-                Browse Products
-              </Button>
-              <Link
-                href="/contact"
-                className="text-[#11192C]/70 hover:text-[#11192C] transition-colors text-sm font-medium underline underline-offset-4"
-              >
+              <Button href="/contact" variant="primary" size="lg">
                 Contact Us
-              </Link>
+              </Button>
             </div>
           </div>
 
