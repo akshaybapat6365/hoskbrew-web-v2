@@ -39,13 +39,13 @@ export default function ContactPage() {
   return (
     <>
       {/* Page header */}
-      <section className="relative border-b border-white/10 bg-[#11192C] pt-28 pb-9 sm:pt-32 sm:pb-12">
+      <section className="relative border-b border-white/10 bg-[#11192C] pt-28 pb-12 sm:pt-32 sm:pb-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             <span className="text-xs uppercase tracking-widest text-white/40 font-medium mb-3 block">
               Talk to Us
             </span>
-            <h1 className="mb-4 text-4xl font-black uppercase leading-[0.9] tracking-tight text-white md:text-5xl lg:text-6xl">
+            <h1 className="mb-5 text-4xl font-black uppercase leading-[0.9] tracking-tight text-white md:text-5xl lg:text-6xl">
               Get in Touch
             </h1>
             <p className="max-w-3xl text-base leading-relaxed text-white/60 md:text-lg">
@@ -58,11 +58,11 @@ export default function ContactPage() {
       </section>
 
       {/* Main content */}
-      <section className="bg-[#11192C] py-9 sm:py-12">
+      <section className="bg-[#11192C] py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-5 lg:gap-8">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-5 lg:gap-10">
             {/* Left column - contact info + what to include */}
-            <div className="flex flex-col gap-3 lg:col-span-2">
+            <div className="flex flex-col gap-5 lg:col-span-2">
               {/* Contact info cards */}
               <div className="grid grid-cols-1 gap-px bg-white/10 rounded-xl overflow-hidden border border-white/10">
                 {CONTACT_INFO.map((item) => (
@@ -96,7 +96,7 @@ export default function ContactPage() {
 
               {/* What to include - card grid, no bullets */}
               <div className="overflow-hidden rounded-xl border border-white/10 bg-[#11192C]">
-                <div className="border-b border-white/10 px-5 py-3">
+                <div className="px-5 py-4 border-b border-white/10">
                   <h3 className="font-black uppercase tracking-tight text-sm text-white">
                     What to Include
                   </h3>
@@ -125,8 +125,8 @@ export default function ContactPage() {
             </div>
 
             {/* Right column - form */}
-            <div className="rounded-xl border border-white/10 bg-[#11192C] p-4 sm:p-5 lg:col-span-3">
-              <div className="mb-4 sm:mb-5">
+            <div className="rounded-xl border border-white/10 bg-[#11192C] p-5 sm:p-6 lg:col-span-3">
+              <div className="mb-5 sm:mb-6">
                 <h2 className="text-2xl font-black uppercase tracking-tight text-white leading-tight mb-1">
                   Send a Message
                 </h2>

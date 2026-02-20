@@ -20,13 +20,13 @@ export default function ServicesPage() {
   return (
     <>
       {/* Page header */}
-      <section className="relative border-b border-white/10 bg-[#11192C] pt-28 pb-9 sm:pt-32 sm:pb-12">
+      <section className="relative border-b border-white/10 bg-[#11192C] pt-28 pb-12 sm:pt-32 sm:pb-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             <span className="text-xs uppercase tracking-widest text-white/40 font-medium mb-3 block">
               What We Offer
             </span>
-            <h1 className="mb-4 text-4xl font-black uppercase leading-[0.9] tracking-tight text-white md:text-5xl lg:text-6xl">
+            <h1 className="mb-5 text-4xl font-black uppercase leading-[0.9] tracking-tight text-white md:text-5xl lg:text-6xl">
               Services
             </h1>
             <p className="max-w-3xl text-base leading-relaxed text-white/60 md:text-lg">
@@ -39,9 +39,9 @@ export default function ServicesPage() {
       </section>
 
       {/* Services grid */}
-      <section className="border-b border-white/10 bg-[#11192C] py-9 sm:py-12">
+      <section className="border-b border-white/10 bg-[#11192C] py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5">
             {services.map((service, idx) => {
               const isLast = idx === services.length - 1;
               const isOdd = services.length % 2 !== 0;
@@ -49,7 +49,7 @@ export default function ServicesPage() {
               return (
                 <article
                   key={service.slug}
-                  className={`flex flex-col gap-3 rounded-xl border border-white/10 bg-[#0B1120] p-4 transition-all duration-300 hover:border-white/20 sm:p-5${isLast && isOdd ? " md:col-span-2 md:mx-auto md:w-full md:max-w-3xl" : ""}`}
+                  className={`flex flex-col gap-4 rounded-xl border border-white/10 bg-[#0B1120] p-5 transition-all duration-300 hover:border-white/20 sm:p-6${isLast && isOdd ? " md:col-span-2 md:mx-auto md:w-full md:max-w-3xl" : ""}`}
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex flex-col gap-1">
@@ -65,12 +65,12 @@ export default function ServicesPage() {
                     </span>
                   </div>
 
-                  <p className="text-sm leading-6 text-white/40">
+                  <p className="text-sm text-white/40 leading-relaxed">
                     {service.description}
                   </p>
 
-                  <div className="mt-auto border-t border-white/[0.08] pt-3">
-                    <p className="text-xs font-medium leading-relaxed text-brand-primary/80">
+                  <div className="mt-auto pt-4 border-t border-white/[0.08]">
+                    <p className="text-xs text-brand-primary/80 leading-relaxed font-medium">
                       {service.features}
                     </p>
                   </div>
@@ -82,11 +82,11 @@ export default function ServicesPage() {
       </section>
 
       {/* Crystal Mines gallery */}
-      <section className="bg-[#11192C] py-9 sm:py-12">
+      <section className="bg-[#11192C] py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-7 max-w-4xl sm:mb-8">
+          <div className="mb-8 max-w-4xl sm:mb-10">
             <h2 className="mb-3 text-2xl font-black uppercase leading-[0.92] tracking-tight text-white md:text-3xl">
-              Crystal Mines
+               Crystal Mines
             </h2>
             <p className="max-w-3xl text-sm leading-relaxed text-white/50 md:text-base">
               A showcase of our manufacturing, packaging, and fulfillment
