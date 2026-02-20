@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "./ui/Button";
 import { AssetRegistry } from "@/lib/assets";
 
@@ -12,31 +11,31 @@ import { AssetRegistry } from "@/lib/assets";
  */
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-white pt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-            <span className="text-sm uppercase tracking-widest text-[#11192C]/60 mb-4 font-medium">
+    <section className="relative flex min-h-[84svh] items-center justify-center bg-white pt-20">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="mx-auto flex max-w-xl flex-col items-center gap-5 text-center lg:mx-0 lg:items-start lg:text-left">
+            <span className="text-sm font-medium uppercase tracking-widest text-[#11192C]/60">
               PREMIUM RETAIL SERVICE
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-[#11192C] leading-[0.95] mb-6">
+            <h1 className="text-4xl font-black uppercase leading-[0.92] tracking-tight text-[#11192C] md:text-5xl lg:text-6xl">
               <span className="block">YOUR GAME.</span>
               <span className="block">REAL HARDWARE.</span>
             </h1>
-            <p className="text-lg md:text-xl text-[#11192C]/70 mb-8 max-w-lg font-sans">
+            <p className="max-w-lg text-lg leading-relaxed text-[#11192C]/70 md:text-xl">
               We manufacture, package, and ship your retro game on real
               cartridges. From ROM to retail.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4">
+            <div className="flex flex-col items-center gap-4 pt-1 sm:flex-row">
               <Button href="/contact" variant="primary" size="lg">
                 Contact Us
               </Button>
             </div>
           </div>
 
-          <div className="relative flex items-center justify-center">
-            <div className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px]">
+          <div className="relative flex items-center justify-center lg:justify-end">
+            <div className="relative h-[290px] w-[290px] sm:h-[350px] sm:w-[350px] lg:h-[390px] lg:w-[390px]">
               <Image
                 src={AssetRegistry.logos.full.color}
                 alt="HoskBrew"
