@@ -5,38 +5,71 @@ import { AssetRegistry } from "@/lib/assets";
 
 export default function Footer() {
   return (
-    <footer className="bg-black">
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
-        <div className="grid grid-cols-1 items-end gap-10 md:grid-cols-2">
-          <div className="flex flex-col items-start gap-5">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white leading-[0.92] mb-3">
-                Not sure what you need?
-              </h2>
-              <p className="text-white/50 text-sm leading-relaxed max-w-sm">
-                Reach out and we&apos;ll help you figure out the right
-                manufacturing path for your project. No commitment required.
-              </p>
-            </div>
-            <Button href="/contact" variant="primary" size="lg">
-              Talk to Us
-            </Button>
-          </div>
-
-          <div className="flex flex-col items-start gap-4 md:items-end">
+    <footer className="bg-black" aria-labelledby="footer-heading">
+      <h2 id="footer-heading" className="sr-only">
+        Footer
+      </h2>
+      <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
+        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
+          <div className="space-y-8">
             <Link href="/" aria-label="HoskBrew home">
               <Image
                 src={AssetRegistry.logos.stacked.white}
                 alt="HoskBrew"
-                width={320}
-                height={154}
-                className="h-auto w-[220px] object-contain sm:w-[280px] md:w-[320px]"
+                width={200}
+                height={96}
+                className="h-24 w-auto object-contain"
               />
             </Link>
-            <p className="text-xs text-white/30">
-              &copy; {new Date().getFullYear()} HoskBrew. All rights reserved.
+            <p className="text-sm leading-6 text-white/50 max-w-xs">
+              End-to-end cartridge manufacturing, packaging, quality assurance, and fulfillment for homebrew game developers.
             </p>
           </div>
+          <div className="mt-16 grid grid-cols-1 gap-8 xl:col-span-2 xl:mt-0">
+             <div className="md:grid md:grid-cols-2 md:gap-8">
+                <div>
+                  <h3 className="text-sm font-semibold leading-6 text-white uppercase tracking-wider">Ready to build?</h3>
+                  <div className="mt-6 flex flex-col items-start gap-4">
+                     <p className="text-sm leading-6 text-white/60">
+                        Not sure what you need? Reach out and we'll help you figure out the right manufacturing path for your project. No commitment required.
+                     </p>
+                     <Button href="/contact" variant="primary">
+                       Talk to Us
+                     </Button>
+                  </div>
+                </div>
+                <div className="mt-10 md:mt-0">
+                  <h3 className="text-sm font-semibold leading-6 text-white uppercase tracking-wider">Services</h3>
+                  <ul role="list" className="mt-6 space-y-4">
+                    <li>
+                      <a href="/services" className="text-sm leading-6 text-white/60 hover:text-white transition-colors">
+                        Circuit Boards
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/services" className="text-sm leading-6 text-white/60 hover:text-white transition-colors">
+                        Cartridge Manufacturing
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/services" className="text-sm leading-6 text-white/60 hover:text-white transition-colors">
+                        Packaging Design
+                      </a>
+                    </li>
+                    <li>
+                      <a href="/services" className="text-sm leading-6 text-white/60 hover:text-white transition-colors">
+                        Fulfillment & Distribution
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+             </div>
+          </div>
+        </div>
+        <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
+          <p className="text-xs leading-5 text-white/40">
+            &copy; {new Date().getFullYear()} HoskBrew. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

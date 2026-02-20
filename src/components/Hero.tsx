@@ -4,41 +4,41 @@ import Image from "next/image";
 import { Button } from "./ui/Button";
 import { AssetRegistry } from "@/lib/assets";
 
-/**
- * Hero section - clean white background with full-color logo.
- * Copy: PREMIUM RETAIL SERVICE / YOUR GAME. REAL HARDWARE. / From ROM to Retail
- * CTA: Browse Products button + Contact Us text link
- */
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[86svh] items-center justify-center bg-white pt-20">
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
-          <div className="mx-auto flex max-w-xl flex-col items-center text-center lg:mx-0 lg:items-start lg:text-left">
-            <span className="mb-4 text-sm font-medium uppercase tracking-widest text-[#11192C]/60">
-              PREMIUM RETAIL SERVICE
+    <section className="relative bg-white pt-24 pb-16 sm:pt-32 sm:pb-24 lg:pb-32 overflow-hidden">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
+          <div className="mt-24 sm:mt-32 lg:mt-16">
+            <span className="inline-flex space-x-6">
+              <span className="rounded-full bg-[#11192C]/10 px-3 py-1 text-sm font-semibold leading-6 text-[#11192C] ring-1 ring-inset ring-[#11192C]/20 uppercase tracking-wide">
+                Premium Retail Service
+              </span>
             </span>
-            <h1 className="mb-5 text-4xl font-black uppercase leading-[0.92] tracking-tight text-[#11192C] md:text-5xl lg:text-6xl">
-              <span className="block">YOUR GAME.</span>
-              <span className="block">REAL HARDWARE.</span>
-            </h1>
-            <p className="mb-8 max-w-lg text-lg text-[#11192C]/70 md:text-xl">
-              We manufacture, package, and ship your retro game on real
-              cartridges. From ROM to retail.
-            </p>
-
-            <div className="flex flex-col sm:flex-row items-center gap-4">
-              <Button href="/contact" variant="primary" size="lg">
-                Contact Us
-              </Button>
-            </div>
           </div>
-
-          <div className="relative flex items-center justify-center lg:justify-end">
-            <div className="relative h-[280px] w-[280px] sm:h-[340px] sm:w-[340px] lg:h-[380px] lg:w-[380px]">
+          <h1 className="mt-10 text-4xl font-black uppercase tracking-tight text-[#11192C] sm:text-6xl leading-[0.9]">
+            <span className="block mb-2">Your Game.</span>
+            <span className="block text-brand-primary">Real Hardware.</span>
+          </h1>
+          <p className="mt-6 text-lg leading-8 text-[#11192C]/70">
+            We manufacture, package, and ship your retro game on real
+            cartridges. From ROM to retail.
+          </p>
+          <div className="mt-10 flex items-center gap-x-6">
+            <Button href="/contact" variant="primary" size="lg">
+              Contact Us
+            </Button>
+            <a href="/services" className="text-sm font-semibold leading-6 text-[#11192C] hover:text-brand-primary transition-colors uppercase tracking-widest">
+              View Services <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+        <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
+          <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
+            <div className="relative h-[280px] w-[280px] sm:h-[400px] sm:w-[400px] lg:h-[500px] lg:w-[500px]">
               <Image
                 src={AssetRegistry.logos.full.color}
-                alt="HoskBrew"
+                alt="HoskBrew Logo"
                 fill
                 className="object-contain"
                 priority

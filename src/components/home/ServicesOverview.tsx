@@ -13,52 +13,49 @@ const iconMap: Record<string, LucideIcon> = {
   sparkles: Sparkles,
 };
 
-/**
- * Homepage services overview - dark background (#11192C), 5-column grid.
- * Simplified cards showing name + tagline only. No duplicate content from services page.
- */
 export function ServicesOverview() {
   return (
-    <section className="relative bg-[#11192C] py-20 sm:py-24 border-t border-white/10">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section header - left-aligned */}
-        <div className="mb-12">
-          <span className="text-xs uppercase tracking-widest text-white/40 font-medium mb-3 block">
+    <section className="relative bg-[#11192C] py-24 sm:py-32 border-t border-white/10">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        {/* Section header */}
+        <div className="mb-16 max-w-2xl text-center mx-auto">
+          <span className="text-sm uppercase tracking-widest text-brand-primary font-semibold mb-4 block">
             What We Do
           </span>
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
-            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white leading-[0.92]">
-              End-to-End Manufacturing
-            </h2>
-            <Button href="/services" variant="outline" size="md">
-              All Services
-            </Button>
-          </div>
+          <h2 className="text-3xl font-black uppercase tracking-tight text-white sm:text-4xl leading-tight mb-6">
+            End-to-End Manufacturing
+          </h2>
+          <p className="text-lg leading-8 text-white/60">
+            Everything you need to ship your retro game on real cartridges. From raw materials to retail-ready packaging.
+          </p>
         </div>
 
-        {/* 5-column service cards */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-white/10 rounded-xl overflow-hidden border border-white/10">
-          {services.map((service) => {
-            const Icon = iconMap[service.icon] ?? Cpu;
-            return (
-              <div
-                key={service.slug}
-                className="group flex flex-col gap-3 p-5 bg-[#11192C] hover:bg-white/[0.04] transition-colors duration-300"
-              >
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10">
-                  <Icon className="h-3.5 w-3.5 text-brand-primary" />
-                </div>
-                <div>
-                  <h3 className="font-black uppercase text-sm text-white leading-[0.95] tracking-tight mb-1.5">
+        {/* Service cards grid */}
+        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+            {services.map((service, idx) => {
+              const Icon = iconMap[service.icon] ?? Cpu;
+              return (
+                <div key={service.slug} className="flex flex-col relative group rounded-2xl bg-[#0B1120] p-8 border border-white/10 hover:border-brand-primary/50 transition-all duration-300">
+                  <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-white uppercase tracking-wide">
+                    <div className="h-10 w-10 flex items-center justify-center rounded-lg bg-brand-primary/10 group-hover:bg-brand-primary/20 transition-colors">
+                       <Icon className="h-6 w-6 text-brand-primary" aria-hidden="true" />
+                    </div>
                     {service.name}
-                  </h3>
-                  <p className="text-xs leading-relaxed text-white/40">
-                    {service.tagline}
-                  </p>
+                  </dt>
+                  <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-white/60">
+                    <p className="flex-auto">{service.tagline}</p>
+                  </dd>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </dl>
+          
+          <div className="mt-16 flex justify-center">
+            <Button href="/services" variant="primary" size="lg">
+              View All Services
+            </Button>
+          </div>
         </div>
       </div>
     </section>
