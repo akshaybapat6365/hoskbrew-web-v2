@@ -1,14 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import { Button } from "@/components/ui/Button";
 import { services } from "@/data/services";
-import {
-  Cpu,
-  Package,
-  Box,
-  Truck,
-  Sparkles,
-} from "lucide-react";
+import { Cpu, Package, Box, Truck, Sparkles } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -93,18 +86,6 @@ export default function ServicesPage() {
                           </li>
                         ))}
                       </ul>
-
-                      <div className="mt-4 flex flex-wrap items-center gap-4">
-                        <Button
-                          href={`/services/${service.slug}`}
-                          variant="primary"
-                        >
-                          Learn More
-                        </Button>
-                        <Button href="/contact" variant="outline">
-                          Get a Quote
-                        </Button>
-                      </div>
                     </div>
 
                     <div className="hidden lg:col-span-2 lg:flex lg:items-center lg:justify-center">
