@@ -20,7 +20,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* Page header */}
-      <section className="relative border-b border-white/10 bg-[#11192C] pt-28 pb-10 sm:pt-32 sm:pb-14">
+      <section className="relative border-b border-white/10 bg-[#11192C] pt-28 pb-9 sm:pt-32 sm:pb-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             <span className="text-xs uppercase tracking-widest text-white/40 font-medium mb-3 block">
@@ -39,7 +39,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services grid */}
-      <section className="border-b border-white/10 bg-[#11192C] py-10 sm:py-14">
+      <section className="border-b border-white/10 bg-[#11192C] py-9 sm:py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {services.map((service, idx) => {
@@ -49,7 +49,7 @@ export default function ServicesPage() {
               return (
                 <article
                   key={service.slug}
-                  className={`flex flex-col gap-3 rounded-xl border border-white/10 bg-[#0B1120] p-5 transition-all duration-300 hover:border-white/20 sm:p-6${isLast && isOdd ? " md:col-span-2 md:mx-auto md:w-full md:max-w-3xl" : ""}`}
+                  className={`flex flex-col gap-3 rounded-xl border border-white/10 bg-[#0B1120] p-4 transition-all duration-300 hover:border-white/20 sm:p-5${isLast && isOdd ? " md:col-span-2 md:mx-auto md:w-full md:max-w-3xl" : ""}`}
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex flex-col gap-1">
@@ -82,7 +82,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Crystal Mines gallery */}
-      <section className="bg-[#11192C] py-10 sm:py-14">
+      <section className="bg-[#11192C] py-9 sm:py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-7 max-w-4xl sm:mb-8">
             <h2 className="mb-3 text-2xl font-black uppercase leading-[0.92] tracking-tight text-white md:text-3xl">

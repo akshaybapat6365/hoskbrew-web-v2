@@ -1,8 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
-import { staggerContainer, staggerItem } from "@/lib/motion";
 import { services } from "@/data/services";
 import { Cpu, Package, Box, Truck, Sparkles } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -21,15 +19,9 @@ const iconMap: Record<string, LucideIcon> = {
  */
 export function ServicesOverview() {
   return (
-    <section className="relative border-t border-white/10 bg-[#11192C] py-14 sm:py-16">
+    <section className="relative border-t border-white/10 bg-[#11192C] py-10 sm:py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section header - left-aligned */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          className="mb-8 sm:mb-10"
-        >
+        <div className="mb-6 sm:mb-8">
           <span className="text-xs uppercase tracking-widest text-white/40 font-medium mb-3 block">
             What We Do
           </span>
@@ -41,23 +33,16 @@ export function ServicesOverview() {
               All Services
             </Button>
           </div>
-        </motion.div>
+        </div>
 
-        {/* 5-column service cards */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 sm:grid-cols-3 lg:grid-cols-5"
-        >
-          {services.map((service) => {
+        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 sm:grid-cols-3 lg:grid-cols-5">
+          {services.map((service, idx) => {
             const Icon = iconMap[service.icon] ?? Cpu;
+            const isLast = idx === services.length - 1;
             return (
-              <motion.div
+              <div
                 key={service.slug}
-                variants={staggerItem}
-                className="group flex flex-col gap-3 bg-[#11192C] p-4 transition-colors duration-300 hover:bg-white/[0.04] sm:p-5"
+                className={`group flex flex-col gap-3 bg-[#11192C] p-4 transition-colors duration-300 hover:bg-white/[0.04] sm:p-5${isLast ? " col-span-2 sm:col-span-2 lg:col-span-1" : ""}`}
               >
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10">
                   <Icon className="h-3.5 w-3.5 text-brand-primary" />
@@ -70,10 +55,10 @@ export function ServicesOverview() {
                     {service.tagline}
                   </p>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

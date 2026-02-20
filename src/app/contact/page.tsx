@@ -39,7 +39,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Page header */}
-      <section className="relative border-b border-white/10 bg-[#11192C] pt-28 pb-10 sm:pt-32 sm:pb-14">
+      <section className="relative border-b border-white/10 bg-[#11192C] pt-28 pb-9 sm:pt-32 sm:pb-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl">
             <span className="text-xs uppercase tracking-widest text-white/40 font-medium mb-3 block">
@@ -58,11 +58,11 @@ export default function ContactPage() {
       </section>
 
       {/* Main content */}
-      <section className="bg-[#11192C] py-10 sm:py-14">
+      <section className="bg-[#11192C] py-9 sm:py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-7 lg:grid-cols-5 lg:gap-9">
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-5 lg:gap-8">
             {/* Left column - contact info + what to include */}
-            <div className="flex flex-col gap-4 lg:col-span-2">
+            <div className="flex flex-col gap-3 lg:col-span-2">
               {/* Contact info cards */}
               <div className="grid grid-cols-1 gap-px bg-white/10 rounded-xl overflow-hidden border border-white/10">
                 {CONTACT_INFO.map((item) => (
@@ -125,7 +125,7 @@ export default function ContactPage() {
             </div>
 
             {/* Right column - form */}
-            <div className="rounded-xl border border-white/10 bg-[#11192C] p-5 sm:p-6 lg:col-span-3">
+            <div className="rounded-xl border border-white/10 bg-[#11192C] p-4 sm:p-5 lg:col-span-3">
               <div className="mb-4 sm:mb-5">
                 <h2 className="text-2xl font-black uppercase tracking-tight text-white leading-tight mb-1">
                   Send a Message

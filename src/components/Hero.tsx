@@ -11,10 +11,10 @@ import { AssetRegistry } from "@/lib/assets";
  */
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[84svh] items-center justify-center bg-white pt-20">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <div className="mx-auto flex max-w-xl flex-col items-center gap-5 text-center lg:mx-0 lg:items-start lg:text-left">
+    <section className="relative bg-white pt-20">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+        <div className="grid grid-cols-1 items-center gap-9 md:grid-cols-2 md:gap-10 lg:gap-12">
+          <div className="mx-auto flex max-w-xl flex-col items-center gap-4 text-center md:mx-0 md:items-start md:text-left">
             <span className="text-sm font-medium uppercase tracking-widest text-[#11192C]/60">
               PREMIUM RETAIL SERVICE
             </span>
@@ -27,15 +27,15 @@ export default function Hero() {
               cartridges. From ROM to retail.
             </p>
 
-            <div className="flex flex-col items-center gap-4 pt-1 sm:flex-row">
+            <div className="flex flex-col items-center gap-4 sm:flex-row">
               <Button href="/contact" variant="primary" size="lg">
                 Contact Us
               </Button>
             </div>
           </div>
 
-          <div className="relative flex items-center justify-center lg:justify-end">
-            <div className="relative h-[290px] w-[290px] sm:h-[350px] sm:w-[350px] lg:h-[390px] lg:w-[390px]">
+          <div className="relative flex items-center justify-center md:justify-end">
+            <div className="relative h-[210px] w-[210px] sm:h-[250px] sm:w-[250px] md:h-[280px] md:w-[280px] lg:h-[320px] lg:w-[320px]">
               <Image
                 src={AssetRegistry.logos.full.color}
                 alt="HoskBrew"
