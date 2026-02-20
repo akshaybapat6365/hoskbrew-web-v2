@@ -84,17 +84,12 @@ export default async function ServiceDetailPage({ params }: Props) {
           <h2 className="font-black uppercase tracking-tight text-2xl md:text-3xl text-white leading-[0.92] mb-8">
             What&apos;s Included
           </h2>
-          <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {service.features.map((feat) => (
-              <li
-                key={feat}
-                className="flex items-start gap-3 rounded-lg border border-white/10 bg-white/5 p-5 transition-colors hover:border-white/20"
-              >
-                <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-brand-primary" />
-                <span className="text-sm text-white/60">{feat}</span>
-              </li>
-            ))}
-          </ul>
+          
+          <div className="bg-white/5 border border-white/10 rounded-xl p-8 max-w-3xl">
+            <p className="text-lg text-white/70 leading-relaxed font-medium">
+              {service.features}
+            </p>
+          </div>
         </div>
       </section>
 

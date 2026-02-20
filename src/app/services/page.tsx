@@ -24,15 +24,6 @@ const iconMap: Record<string, LucideIcon> = {
   sparkles: Sparkles,
 };
 
-/** Convert a features array to a readable plain-text sentence. */
-function featuresToSentence(features: string[]): string {
-  if (features.length === 0) return "";
-  if (features.length === 1) return `Includes ${features[0].toLowerCase()}.`;
-  const last = features[features.length - 1];
-  const rest = features.slice(0, -1).map((f) => f.toLowerCase());
-  return `Includes ${rest.join(", ")}, and ${last.toLowerCase()}.`;
-}
-
 const crystalMinesImages = Array.from({ length: 16 }, (_, i) => {
   const num = String(i + 1).padStart(2, "0");
   return {
@@ -66,7 +57,7 @@ export default function ServicesPage() {
       {/* Services grid */}
       <section className="bg-[#11192C] py-14 sm:py-20 border-b border-white/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 rounded-xl overflow-hidden border border-white/10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {services.map((service, idx) => {
               const Icon = iconMap[service.icon] ?? Cpu;
               const isLast = idx === services.length - 1;
@@ -75,32 +66,31 @@ export default function ServicesPage() {
               return (
                 <div
                   key={service.slug}
-                  className={`bg-[#11192C] p-7 flex flex-col gap-4 hover:bg-white/[0.03] transition-colors duration-300${isLast && isOdd ? " md:col-span-2" : ""}`}
+                  className={`bg-[#0B1120] border border-white/10 rounded-xl p-6 flex flex-col gap-4 hover:border-white/20 transition-all duration-300${isLast && isOdd ? " md:col-span-2 md:max-w-3xl md:mx-auto md:w-full" : ""}`}
                 >
-                  {/* Icon */}
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 border border-white/10">
-                    <Icon className="h-4 w-4 text-brand-primary" />
+                  <div className="flex items-start justify-between">
+                    <div className="flex flex-col gap-1">
+                      <h2 className="text-lg font-black uppercase tracking-tight text-white leading-tight">
+                        {service.name}
+                      </h2>
+                      <p className="text-sm text-white/50 font-medium">
+                        {service.tagline}
+                      </p>
+                    </div>
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/5 border border-white/10">
+                      <Icon className="h-5 w-5 text-brand-primary" />
+                    </div>
                   </div>
 
-                  {/* Name + tagline */}
-                  <div>
-                    <h2 className="text-base font-black uppercase tracking-tight text-white leading-tight mb-1">
-                      {service.name}
-                    </h2>
-                    <p className="text-sm text-white/50 font-medium">
-                      {service.tagline}
-                    </p>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-sm text-white/40 leading-relaxed flex-1">
+                  <p className="text-sm text-white/40 leading-relaxed">
                     {service.description}
                   </p>
 
-                  {/* Features as plain sentence */}
-                  <p className="text-xs text-white/30 leading-relaxed border-t border-white/[0.08] pt-4">
-                    {featuresToSentence(service.features)}
-                  </p>
+                  <div className="mt-auto pt-4 border-t border-white/[0.08]">
+                    <p className="text-xs text-brand-primary/80 leading-relaxed font-medium">
+                      {service.features}
+                    </p>
+                  </div>
                 </div>
               );
             })}

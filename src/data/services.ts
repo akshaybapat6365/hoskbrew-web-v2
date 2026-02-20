@@ -8,7 +8,7 @@ export const services: Service[] = [
     description:
       "Source PCBs directly through us and have us flash your ROMs on site during assembly. We work with you to test your ROMs for quality assurance.",
     icon: "cpu",
-    features: ["PCBs for most popular systems", "Unique PCBs available"],
+    features: "Includes PCBs for most popular systems and unique PCB options.",
   },
   {
     slug: "cartridge-manufacturing",
@@ -17,13 +17,8 @@ export const services: Service[] = [
     description:
       "Whether you need PCBs or supply your own we can manage full cartridge production with PCBs and Shells for most popular retro systems. Huge selection of colors, including transparent and glow in the dark!",
     icon: "package",
-    features: [
-      "Shells for most Retro-Systems",
-      "Custom colors and finishes",
-      "High quality art labels",
-      "With or Without OEM Logos",
-      "Dust Sleeves available",
-    ],
+    features:
+      "Includes shells for most retro systems, custom colors and finishes, high quality art labels, with or without OEM logos, and dust sleeves.",
   },
   {
     slug: "packaging-design",
@@ -32,12 +27,8 @@ export const services: Service[] = [
     description:
       "Authentic replica packaging for that classic look or new packaging designed to be practical and attractive. From NES-style cardboard boxes to GBA clamshells, and Sega plastic cases. Complete your packaging with manuals and spacing inserts.",
     icon: "box",
-    features: [
-      "Era-accurate box designs",
-      "Full-color instruction manual printing",
-      "Inserts and extras",
-      "Shrink wrapping available",
-    ],
+    features:
+      "Includes era-accurate box designs, full-color instruction manual printing, inserts and extras, and shrink wrapping.",
   },
   {
     slug: "fulfillment-distribution",
@@ -46,11 +37,8 @@ export const services: Service[] = [
     description:
       "Warehousing, pick-and-pack, and worldwide shipping for your homebrew releases. Doing a crowdfunding campaign or a large initial release? We can fulfill your shipping list right from our warehouse. Otherwise we freight ship to your door.",
     icon: "truck",
-    features: [
-      "Pick, pack, and ship worldwide",
-      "Tracking and delivery confirmation",
-      "Bulk or Freight Shipping",
-    ],
+    features:
+      "Includes pick, pack, and ship worldwide, tracking and delivery confirmation, and bulk or freight shipping.",
   },
   {
     slug: "bonus-parts",
@@ -59,11 +47,8 @@ export const services: Service[] = [
     description:
       "Custom controller or system shell parts add a unique offering to accompany your games. Have any ideas, always ask - we love to fulfill special requests!",
     icon: "sparkles",
-    features: [
-      "Controller Shells & buttons",
-      "System Shells",
-      "Custom parts request",
-    ],
+    features:
+      "Includes controller shells & buttons, system shells, and custom parts requests.",
   },
 ];
 

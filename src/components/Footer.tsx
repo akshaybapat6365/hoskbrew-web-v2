@@ -34,8 +34,8 @@ export default function Footer() {
               <Image
                 src={AssetRegistry.logos.full.color}
                 alt="HoskBrew"
-                width={75}
-                height={38}
+                width={300}
+                height={150}
                 className="object-contain"
               />
             </Link>

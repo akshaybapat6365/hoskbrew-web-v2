@@ -20,7 +20,7 @@ export type Service = {
   tagline: string;
   description: string;
   icon: string;
-  features: string[];
+  features: string;
   leadTime?: string;
 };
 
