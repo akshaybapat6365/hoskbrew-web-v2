@@ -1,27 +1,11 @@
 import { Metadata } from "next";
 import { services } from "@/data/services";
 import { InteractiveGallery } from "@/components/ui/InteractiveGallery";
-import {
-  Cpu,
-  Package,
-  Box,
-  Truck,
-  Sparkles,
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Services | HoskBrew",
   description:
     "End-to-end cartridge manufacturing, packaging, quality assurance, and fulfillment for homebrew game developers.",
-};
-
-const iconMap: Record<string, LucideIcon> = {
-  cpu: Cpu,
-  package: Package,
-  box: Box,
-  truck: Truck,
-  sparkles: Sparkles,
 };
 
 const crystalMinesImages = Array.from({ length: 16 }, (_, i) => {
@@ -59,12 +43,11 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {services.map((service, idx) => {
-              const Icon = iconMap[service.icon] ?? Cpu;
               const isLast = idx === services.length - 1;
               const isOdd = services.length % 2 !== 0;
 
               return (
-                <div
+                <article
                   key={service.slug}
                   className={`bg-[#0B1120] border border-white/10 rounded-xl p-6 flex flex-col gap-4 hover:border-white/20 transition-all duration-300${isLast && isOdd ? " md:col-span-2 md:max-w-3xl md:mx-auto md:w-full" : ""}`}
                 >
@@ -77,9 +60,9 @@ export default function ServicesPage() {
                         {service.tagline}
                       </p>
                     </div>
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/5 border border-white/10">
-                      <Icon className="h-5 w-5 text-brand-primary" />
-                    </div>
+                    <span className="inline-flex h-8 min-w-8 shrink-0 items-center justify-center rounded-md border border-white/15 bg-white/5 px-2 text-[11px] font-semibold tracking-wider text-white/60">
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
                   </div>
 
                   <p className="text-sm text-white/40 leading-relaxed">
@@ -91,7 +74,7 @@ export default function ServicesPage() {
                       {service.features}
                     </p>
                   </div>
-                </div>
+                </article>
               );
             })}
           </div>
@@ -102,9 +85,6 @@ export default function ServicesPage() {
       <section className="bg-[#11192C] py-14 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mb-10">
-            <span className="text-xs uppercase tracking-widest text-white/40 font-medium mb-3 block">
-              Work Samples
-            </span>
             <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white leading-[0.92] mb-3">
               Crystal Mines
             </h2>

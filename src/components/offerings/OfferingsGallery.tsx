@@ -415,7 +415,7 @@ function OfferingsViewer({
                 </div>
 
                 <span className="text-xs text-brand-text-dim font-mono bg-brand-bg/60 border border-brand-border/60 px-3 py-2 rounded-full backdrop-blur-sm">
-                  Esc closes • Left/Right navigates
+                  Esc closes - Left/Right navigates
                 </span>
               </div>
             </div>

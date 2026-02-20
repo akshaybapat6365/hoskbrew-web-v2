@@ -20,10 +20,6 @@ interface InteractiveGalleryProps {
   images: GalleryImage[];
 }
 
-/**
- * Masonry-style interactive gallery with lightbox, zoom, and keyboard navigation.
- * Respects original image aspect ratios - no forced square crops.
- */
 export function InteractiveGallery({ images }: InteractiveGalleryProps) {
   const [index, setIndex] = useState(-1);
 
@@ -34,36 +30,36 @@ export function InteractiveGallery({ images }: InteractiveGalleryProps) {
 
   return (
     <>
-      {/* Masonry grid using CSS columns */}
-      <div className="columns-2 sm:columns-3 lg:columns-4 gap-3 space-y-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
         {images.map((img, i) => (
           <button
             key={img.src}
             onClick={() => setIndex(i)}
-            className="group relative block w-full break-inside-avoid overflow-hidden rounded-lg bg-white/5 border border-white/10 hover:border-white/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all duration-300"
+            className="group relative aspect-square overflow-hidden rounded-lg border border-white/10 bg-[#0B1120] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
           >
-            <div className="relative w-full">
+            <div className="relative h-full w-full">
               <Image
                 src={img.src}
                 alt={img.alt}
-                width={400}
-                height={300}
-                className="w-full h-auto block transition-transform duration-500 group-hover:scale-[1.04]"
-                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.05]"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
               />
             </div>
 
-            {/* Hover overlay with expand icon */}
-            <div className="absolute inset-0 bg-[#11192C]/0 group-hover:bg-[#11192C]/50 transition-all duration-300 flex items-center justify-center">
-              <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 scale-75 group-hover:scale-100">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg">
+            <div className="absolute inset-0 flex items-center justify-center bg-[#11192C]/0 transition-colors duration-300 group-hover:bg-[#11192C]/45">
+              <div className="scale-90 opacity-0 transition-all duration-300 group-hover:scale-100 group-hover:opacity-100">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur-sm">
                   <Maximize2 className="h-4 w-4 text-white" />
                 </div>
               </div>
             </div>
 
-            {/* Bottom gradient for depth */}
-            <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#11192C]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+            <div className="absolute left-2 top-2 rounded-md border border-white/20 bg-[#11192C]/80 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-white/70">
+              {String(i + 1).padStart(2, "0")}
+            </div>
+
+            <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#11192C]/70 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           </button>
         ))}
       </div>
@@ -87,8 +83,8 @@ export function InteractiveGallery({ images }: InteractiveGalleryProps) {
         }}
         thumbnails={{
           position: "bottom",
-          width: 72,
-          height: 54,
+          width: 68,
+          height: 68,
           border: 1,
           borderStyle: "solid",
           borderColor: "rgba(255,255,255,0.12)",
@@ -114,7 +110,7 @@ export function InteractiveGallery({ images }: InteractiveGalleryProps) {
         carousel={{
           finite: false,
           preload: 3,
-          padding: "16px",
+          padding: "24px",
           spacing: "30%",
         }}
         animation={{

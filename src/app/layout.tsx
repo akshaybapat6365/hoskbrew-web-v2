@@ -4,12 +4,6 @@ import { Press_Start_2P, VT323 } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ui/ThemeProvider";
-import {
-  NoiseOverlay,
-  PixelGridOverlay,
-  ScanlineOverlay,
-  VignetteOverlay,
-} from "@/components/ui/Overlays";
 import "./globals.css";
 
 const pressStart2P = Press_Start_2P({
@@ -81,11 +75,6 @@ export default function RootLayout({
         className={`${inter.variable} ${pressStart2P.variable} ${vt323.variable} bg-brand-bg text-brand-text antialiased overflow-x-hidden flex flex-col min-h-screen`}
       >
         <ThemeProvider>
-          <NoiseOverlay opacity={0.04} />
-          <PixelGridOverlay />
-          <ScanlineOverlay />
-          <VignetteOverlay intensity={0.4} />
-
           <Header />
           <main className="flex-grow relative z-10">{children}</main>
           <Footer />
