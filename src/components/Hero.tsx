@@ -6,7 +6,7 @@ import { Button } from "./ui/Button";
 import { AssetRegistry } from "@/lib/assets";
 
 /**
- * Hero section — clean white background with full-color logo.
+ * Hero section - clean white background with full-color logo.
  * Copy: PREMIUM RETAIL SERVICE / YOUR GAME. REAL HARDWARE. / From ROM to Retail
  * CTA: Browse Products button + Contact Us text link
  */
@@ -24,8 +24,8 @@ export default function Hero() {
               <span className="block">REAL HARDWARE.</span>
             </h1>
             <p className="text-lg md:text-xl text-[#11192C]/70 mb-8 max-w-lg font-sans">
-              From ROM to Retail, we manufacture, package, and ship your retro
-              game on real cartridges.
+              We manufacture, package, and ship your retro game on real
+              cartridges. From ROM to retail.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4">

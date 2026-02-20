@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/Button";
+import { staggerContainer, staggerItem } from "@/lib/motion";
 import { services } from "@/data/services";
 import {
   Cpu,
@@ -20,57 +22,60 @@ const iconMap: Record<string, LucideIcon> = {
 };
 
 /**
- * Homepage services overview - 5 column grid with simplified cards
+ * Homepage services overview - dark background (#11192C), 5-column grid.
+ * Simplified cards showing name + tagline only. No duplicate content from services page.
  */
 export function ServicesOverview() {
   return (
-    <section className="relative bg-[#11192C] py-16 sm:py-20">
+    <section className="relative bg-[#11192C] py-20 sm:py-24 border-t border-white/10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Section header - left-aligned */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
-          className="mb-10 flex flex-col items-center text-center gap-3"
+          className="mb-12"
         >
-          <span className="text-sm uppercase tracking-widest text-white/50 font-medium">
-            Services
+          <span className="text-xs uppercase tracking-widest text-white/40 font-medium mb-3 block">
+            What We Do
           </span>
-          <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white leading-[0.92]">
-            End-to-End Manufacturing
-          </h2>
-          <p className="text-white/60 max-w-2xl text-base">
-            End-to-end manufacturing, packaging, quality assurance, and
-            fulfillment. Everything you need to ship your retro game on real
-            cartridges.
-          </p>
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6">
+            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white leading-[0.92]">
+              End-to-End Manufacturing
+            </h2>
+            <Button href="/services" variant="outline" size="md">
+              All Services
+            </Button>
+          </div>
         </motion.div>
 
+        {/* 5-column service cards */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-white/10 rounded-xl overflow-hidden border border-white/10"
         >
-          {services.map((service, i) => {
+          {services.map((service) => {
             const Icon = iconMap[service.icon] ?? Cpu;
             return (
               <motion.div
                 key={service.slug}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="group flex flex-col items-center text-center gap-3 rounded-lg p-4 transition-all duration-300 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20"
+                variants={staggerItem}
+                className="group flex flex-col gap-3 p-5 bg-[#11192C] hover:bg-white/[0.04] transition-colors duration-300"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-md bg-white/10">
-                  <Icon className="h-5 w-5 text-white/80" />
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/5 border border-white/10">
+                  <Icon className="h-3.5 w-3.5 text-brand-primary" />
                 </div>
-                <h3 className="font-sans font-black uppercase text-sm text-white leading-[0.95] tracking-tight">
-                  {service.name}
-                </h3>
-                <p className="text-xs leading-relaxed text-white/50">
-                  {service.tagline}
-                </p>
+                <div>
+                  <h3 className="font-black uppercase text-sm text-white leading-[0.95] tracking-tight mb-1.5">
+                    {service.name}
+                  </h3>
+                  <p className="text-xs leading-relaxed text-white/40">
+                    {service.tagline}
+                  </p>
+                </div>
               </motion.div>
             );
           })}

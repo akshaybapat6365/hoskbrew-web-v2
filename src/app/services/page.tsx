@@ -24,34 +24,37 @@ const iconMap: Record<string, LucideIcon> = {
   sparkles: Sparkles,
 };
 
-// Features as plain text sentences per service
-const featureSentences: Record<string, string> = {
-  "circuit-boards": "Includes PCBs for most popular systems and unique PCB options.",
-  "cartridge-manufacturing": "Includes shells for most retro systems with custom colors and finishes, high quality art labels, OEM logo options, and dust sleeves.",
-  "packaging-design": "Includes era-accurate box designs, full-color instruction manual printing, inserts and extras, plus shrink wrapping.",
-  "fulfillment-distribution": "Includes pick, pack, and ship worldwide with tracking, delivery confirmation, and bulk or freight shipping.",
-  "bonus-parts": "Includes controller shells and buttons, system shells, plus custom parts requests.",
-};
+/** Convert a features array to a readable plain-text sentence. */
+function featuresToSentence(features: string[]): string {
+  if (features.length === 0) return "";
+  if (features.length === 1) return `Includes ${features[0].toLowerCase()}.`;
+  const last = features[features.length - 1];
+  const rest = features.slice(0, -1).map((f) => f.toLowerCase());
+  return `Includes ${rest.join(", ")}, and ${last.toLowerCase()}.`;
+}
 
 const crystalMinesImages = Array.from({ length: 16 }, (_, i) => {
   const num = String(i + 1).padStart(2, "0");
   return {
     src: `/assets/images/offerings/crystal-mines/${num}.webp`,
-    alt: `Crystal Mines ${num}`,
+    alt: `Crystal Mines product image ${num}`,
   };
 });
 
 export default function ServicesPage() {
   return (
     <>
-      {/* Hero Header */}
-      <section className="relative bg-[#11192C] pt-28 pb-12 sm:pt-32 sm:pb-16 border-b border-white/10">
+      {/* Page header */}
+      <section className="relative bg-[#11192C] pt-28 pb-10 sm:pt-32 sm:pb-14 border-b border-white/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center text-center gap-4">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white leading-[0.9]">
+          <div className="max-w-3xl">
+            <span className="text-xs uppercase tracking-widest text-white/40 font-medium mb-3 block">
+              What We Offer
+            </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-[0.9] mb-5">
               Services
             </h1>
-            <p className="text-white/60 max-w-2xl text-base">
+            <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-2xl">
               End-to-end manufacturing, packaging, quality assurance, and
               fulfillment. Everything you need to ship your retro game on real
               cartridges.
@@ -60,38 +63,44 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services Tiles - Compact 2-Column */}
-      <section className="bg-[#11192C] py-12 sm:py-16 border-b border-white/10">
+      {/* Services grid */}
+      <section className="bg-[#11192C] py-14 sm:py-20 border-b border-white/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {services.map((service) => {
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 rounded-xl overflow-hidden border border-white/10">
+            {services.map((service, idx) => {
               const Icon = iconMap[service.icon] ?? Cpu;
+              const isLast = idx === services.length - 1;
+              const isOdd = services.length % 2 !== 0;
 
               return (
                 <div
                   key={service.slug}
-                  className="flex gap-4 p-5 rounded-lg bg-white/5 border border-white/10 hover:border-white/20 transition-colors"
+                  className={`bg-[#11192C] p-7 flex flex-col gap-4 hover:bg-white/[0.03] transition-colors duration-300${isLast && isOdd ? " md:col-span-2" : ""}`}
                 >
-                  <div className="flex-shrink-0">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-md bg-white/10">
-                      <Icon className="h-5 w-5 text-white/80" />
-                    </div>
+                  {/* Icon */}
+                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 border border-white/10">
+                    <Icon className="h-4 w-4 text-brand-primary" />
                   </div>
 
-                  <div className="flex-1 min-w-0">
+                  {/* Name + tagline */}
+                  <div>
                     <h2 className="text-base font-black uppercase tracking-tight text-white leading-tight mb-1">
                       {service.name}
                     </h2>
-                    <p className="text-sm text-white/70 font-medium mb-2">
+                    <p className="text-sm text-white/50 font-medium">
                       {service.tagline}
                     </p>
-                    <p className="text-sm text-white/50 leading-relaxed mb-2">
-                      {service.description}
-                    </p>
-                    <p className="text-xs text-cyan-400/80 leading-relaxed">
-                      {featureSentences[service.slug]}
-                    </p>
                   </div>
+
+                  {/* Description */}
+                  <p className="text-sm text-white/40 leading-relaxed flex-1">
+                    {service.description}
+                  </p>
+
+                  {/* Features as plain sentence */}
+                  <p className="text-xs text-white/30 leading-relaxed border-t border-white/[0.08] pt-4">
+                    {featuresToSentence(service.features)}
+                  </p>
                 </div>
               );
             })}
@@ -99,20 +108,23 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Crystal Mines Gallery */}
-      <section className="bg-[#11192C] py-12 sm:py-16">
+      {/* Crystal Mines gallery */}
+      <section className="bg-[#11192C] py-14 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center text-center gap-3 mb-8">
-            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white leading-[0.92]">
+          <div className="max-w-3xl mb-10">
+            <span className="text-xs uppercase tracking-widest text-white/40 font-medium mb-3 block">
+              Work Samples
+            </span>
+            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white leading-[0.92] mb-3">
               Crystal Mines
             </h2>
-            <p className="text-white/60 max-w-2xl text-base">
+            <p className="text-white/50 text-sm md:text-base leading-relaxed">
               A showcase of our manufacturing, packaging, and fulfillment
               capabilities from PCB to retail-ready product.
             </p>
           </div>
 
-          <InteractiveGallery images={crystalMinesImages} columns={4} />
+          <InteractiveGallery images={crystalMinesImages} />
         </div>
       </section>
     </>

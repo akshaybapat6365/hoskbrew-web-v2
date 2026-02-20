@@ -2,12 +2,11 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { Maximize2 } from "lucide-react";
 import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
 import Counter from "yet-another-react-lightbox/plugins/counter";
-import { Maximize2 } from "lucide-react";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 import "yet-another-react-lightbox/plugins/counter.css";
@@ -19,13 +18,13 @@ interface GalleryImage {
 
 interface InteractiveGalleryProps {
   images: GalleryImage[];
-  columns?: 2 | 3 | 4;
 }
 
-export function InteractiveGallery({
-  images,
-  columns = 4,
-}: InteractiveGalleryProps) {
+/**
+ * Masonry-style interactive gallery with lightbox, zoom, and keyboard navigation.
+ * Respects original image aspect ratios - no forced square crops.
+ */
+export function InteractiveGallery({ images }: InteractiveGalleryProps) {
   const [index, setIndex] = useState(-1);
 
   const slides = images.map((img) => ({
@@ -33,54 +32,42 @@ export function InteractiveGallery({
     alt: img.alt,
   }));
 
-  const columnClass = {
-    2: "columns-2",
-    3: "columns-2 md:columns-3",
-    4: "columns-2 md:columns-3 lg:columns-4",
-  }[columns];
-
   return (
     <>
-      {/* Masonry Grid */}
-      <div className={`${columnClass} gap-4 space-y-4`}>
+      {/* Masonry grid using CSS columns */}
+      <div className="columns-2 sm:columns-3 lg:columns-4 gap-3 space-y-3">
         {images.map((img, i) => (
-          <motion.button
+          <button
             key={img.src}
             onClick={() => setIndex(i)}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: i * 0.05 }}
-            className="group relative w-full overflow-hidden rounded-lg bg-white/5 border border-white/10 hover:border-cyan-500/30 transition-all duration-300 break-inside-avoid mb-4"
+            className="group relative block w-full break-inside-avoid overflow-hidden rounded-lg bg-white/5 border border-white/10 hover:border-white/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary transition-all duration-300"
           >
             <div className="relative w-full">
               <Image
                 src={img.src}
                 alt={img.alt}
-                width={600}
-                height={400}
-                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
+                width={400}
+                height={300}
+                className="w-full h-auto block transition-transform duration-500 group-hover:scale-[1.04]"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
               />
-              
-              {/* Gradient Overlay on Hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
-              {/* Expand Icon */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20">
-                  <Maximize2 className="w-5 h-5 text-white" />
+            </div>
+
+            {/* Hover overlay with expand icon */}
+            <div className="absolute inset-0 bg-[#11192C]/0 group-hover:bg-[#11192C]/50 transition-all duration-300 flex items-center justify-center">
+              <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 scale-75 group-hover:scale-100">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm border border-white/20 shadow-lg">
+                  <Maximize2 className="h-4 w-4 text-white" />
                 </div>
               </div>
-              
-              {/* Bottom Glow on Hover */}
-              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
             </div>
-          </motion.button>
+
+            {/* Bottom gradient for depth */}
+            <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#11192C]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+          </button>
         ))}
       </div>
 
-      {/* Lightbox */}
       <Lightbox
         index={index}
         slides={slides}
@@ -88,7 +75,7 @@ export function InteractiveGallery({
         close={() => setIndex(-1)}
         plugins={[Zoom, Thumbnails, Counter]}
         zoom={{
-          maxZoomPixelRatio: 3,
+          maxZoomPixelRatio: 4,
           zoomInMultiplier: 2,
           doubleTapDelay: 300,
           doubleClickDelay: 300,
@@ -100,50 +87,58 @@ export function InteractiveGallery({
         }}
         thumbnails={{
           position: "bottom",
-          width: 80,
-          height: 60,
-          border: 2,
+          width: 72,
+          height: 54,
+          border: 1,
           borderStyle: "solid",
-          borderColor: "rgba(255,255,255,0.1)",
-          padding: 4,
-          gap: 8,
+          borderColor: "rgba(255,255,255,0.12)",
+          padding: 3,
+          gap: 6,
+          borderRadius: 6,
         }}
         counter={{
           container: {
-            style: { 
-              top: 16, 
-              left: "50%", 
-              transform: "translateX(-50%)",
-              backgroundColor: "rgba(0,0,0,0.6)",
-              padding: "8px 16px",
-              borderRadius: "9999px",
-              fontSize: "14px",
-              fontWeight: 500,
+            style: {
+              top: "unset",
+              bottom: 0,
+              left: 0,
+              padding: "16px 20px",
+              fontSize: "12px",
+              letterSpacing: "0.08em",
+              fontWeight: 600,
+              textTransform: "uppercase",
+              color: "rgba(255,255,255,0.5)",
             },
           },
         }}
         carousel={{
           finite: false,
-          preload: 2,
+          preload: 3,
+          padding: "16px",
+          spacing: "30%",
         }}
         animation={{
-          fade: 300,
-          swipe: 300,
+          fade: 250,
+          swipe: 250,
         }}
         controller={{
           closeOnPullDown: true,
           closeOnBackdropClick: true,
         }}
         styles={{
-          container: { 
-            backgroundColor: "rgba(0, 0, 0, 0.95)",
-            backdropFilter: "blur(10px)",
+          container: {
+            backgroundColor: "rgba(10, 13, 22, 0.97)",
+            backdropFilter: "blur(12px)",
           },
           button: {
+            color: "rgba(255,255,255,0.7)",
             filter: "none",
-            backgroundColor: "rgba(255,255,255,0.1)",
-            borderRadius: "8px",
-            padding: "8px",
+          },
+          thumbnail: {
+            borderRadius: "6px",
+          },
+          thumbnailsTrack: {
+            padding: "8px 0",
           },
         }}
       />

@@ -1,11 +1,7 @@
 import Image from "next/image";
 import { Metadata } from "next";
-import { PageHeader } from "@/components/layout/PageHeader";
-import { Section } from "@/components/ui/Section";
-import { SectionHeader } from "@/components/layout/SectionHeader";
 import { Button } from "@/components/ui/Button";
 import { AssetRegistry } from "@/lib/assets";
-import { AnimateOnScroll, StaggerGroup } from "@/components/ui/AnimateOnScroll";
 
 export const metadata: Metadata = {
   title: "About | HoskBrew",
@@ -37,38 +33,51 @@ const VALUES = [
 ];
 
 const CAPABILITIES = [
-  "NES, SNES, Game Boy, GBA, Genesis cartridge production",
-  "PCB fabrication with gold-plated connectors",
-  "Custom injection-molded shells in any color",
-  "Full-color manual and packaging design",
-  "QA testing on original console hardware",
-  "Pick, pack, and ship worldwide",
+  { label: "Platforms", detail: "NES, SNES, Game Boy, GBA, Genesis cartridge production" },
+  { label: "PCB", detail: "Fabrication with gold-plated connectors" },
+  { label: "Shells", detail: "Custom injection-molded in any color" },
+  { label: "Packaging", detail: "Full-color manual and packaging design" },
+  { label: "QA", detail: "Testing on original console hardware" },
+  { label: "Fulfillment", detail: "Pick, pack, and ship worldwide" },
 ];
 
 export default function AboutPage() {
   return (
     <>
-      <PageHeader
-        title="About HoskBrew"
-        subtitle="We help indie developers bring their retro games to life on real cartridges, from prototype to production."
-        label="Our Story"
-      />
+      {/* Page header */}
+      <section className="relative bg-[#11192C] pt-28 pb-10 sm:pt-32 sm:pb-14 border-b border-white/10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <span className="text-xs uppercase tracking-widest text-white/40 font-medium mb-3 block">
+              Our Story
+            </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white leading-[0.9] mb-5">
+              About HoskBrew
+            </h1>
+            <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-2xl">
+              We help indie developers bring their retro games to life on real
+              cartridges, from prototype to production.
+            </p>
+          </div>
+        </div>
+      </section>
 
-      <Section spacing="loose">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-          <AnimateOnScroll effect="fadeLeft">
+      {/* Origin story */}
+      <section className="bg-[#11192C] py-14 sm:py-20 border-b border-white/10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <div className="flex flex-col gap-5">
-              <h2 className="text-heading text-brand-text glitch-hover">
+              <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white leading-[0.92]">
                 Born from the Homebrew Scene
               </h2>
-              <p className="text-body max-w-xl">
+              <p className="text-sm md:text-base text-white/50 leading-relaxed">
                 HoskBrew started with a simple frustration: there was no
                 reliable way for indie developers to manufacture
                 professional-quality cartridges for retro consoles. The existing
                 options were either too expensive, too slow, or produced subpar
                 results.
               </p>
-              <p className="text-body max-w-xl">
+              <p className="text-sm md:text-base text-white/50 leading-relaxed">
                 So we built the infrastructure ourselves from custom PCB designs
                 and injection molds to a full QA lab with every major retro
                 console. Today, we serve homebrew developers worldwide, handling
@@ -76,85 +85,90 @@ export default function AboutPage() {
                 thousands of units.
               </p>
             </div>
-          </AnimateOnScroll>
 
-          <AnimateOnScroll effect="fadeRight" delay={0.15}>
             <div className="relative flex items-center justify-center">
-              <div className="absolute h-72 w-72 rounded-full bg-brand-primary/5 blur-[60px]" />
               <div className="relative h-64 w-64">
                 <Image
                   src={AssetRegistry.mascot.color}
                   alt="HoskBrew octopus mascot"
                   fill
-                  className="object-contain drop-shadow-neon"
+                  className="object-contain"
                   sizes="256px"
                 />
               </div>
             </div>
-          </AnimateOnScroll>
+          </div>
         </div>
-      </Section>
+      </section>
 
-      <div className="retro-divider mx-auto max-w-7xl" />
+      {/* Values */}
+      <section className="bg-[#11192C] py-14 sm:py-20 border-b border-white/10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10">
+            <span className="text-xs uppercase tracking-widest text-white/40 font-medium mb-3 block">
+              What We Believe
+            </span>
+            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white leading-[0.92]">
+              Our Values
+            </h2>
+          </div>
 
-      <Section background="elevated" spacing="normal">
-        <AnimateOnScroll>
-          <SectionHeader label="What We Believe" title="Our Values" />
-        </AnimateOnScroll>
-
-        <StaggerGroup
-          staggerDelay={0.08}
-          className="grid grid-cols-1 gap-6 sm:grid-cols-2"
-        >
-          {VALUES.map((value, i) => (
-            <AnimateOnScroll key={value.title} delay={i * 0.08}>
-              <div className="relative overflow-hidden flex flex-col gap-3 rounded-lg p-6 retro-border-glow scanline-sweep bg-brand-bg">
-                <h3 className="font-black uppercase tracking-tight text-lg text-brand-text leading-[0.95] glitch-hover">
+          <div className="grid grid-cols-1 gap-px sm:grid-cols-2 bg-white/10 rounded-xl overflow-hidden border border-white/10">
+            {VALUES.map((value) => (
+              <div
+                key={value.title}
+                className="flex flex-col gap-3 p-6 bg-[#11192C] hover:bg-white/[0.03] transition-colors duration-300"
+              >
+                <h3 className="font-black uppercase tracking-tight text-base text-white leading-[0.95]">
                   {value.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-brand-text-muted">
+                <p className="text-sm leading-relaxed text-white/40">
                   {value.description}
                 </p>
               </div>
-            </AnimateOnScroll>
-          ))}
-        </StaggerGroup>
-      </Section>
-
-      <div className="retro-divider mx-auto max-w-7xl" />
-
-      <Section spacing="normal">
-        <AnimateOnScroll>
-          <SectionHeader
-            label="Capabilities"
-            title="What We Do"
-            description="End-to-end manufacturing and support for retro game cartridge production."
-          />
-        </AnimateOnScroll>
-
-        <div className="mx-auto max-w-2xl">
-          <ul className="flex flex-col gap-3">
-            {CAPABILITIES.map((cap, i) => (
-              <AnimateOnScroll key={cap} effect="fadeLeft" delay={i * 0.06}>
-                <li className="flex items-start gap-3 text-brand-text">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-primary" />
-                  <span className="text-body">{cap}</span>
-                </li>
-              </AnimateOnScroll>
             ))}
-          </ul>
+          </div>
         </div>
-      </Section>
+      </section>
 
-      <div className="retro-divider mx-auto max-w-7xl" />
+      {/* Capabilities */}
+      <section className="bg-[#11192C] py-14 sm:py-20 border-b border-white/10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10">
+            <span className="text-xs uppercase tracking-widest text-white/40 font-medium mb-3 block">
+              Capabilities
+            </span>
+            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white leading-[0.92]">
+              What We Do
+            </h2>
+          </div>
 
-      <Section background="elevated" spacing="normal">
-        <AnimateOnScroll effect="scaleIn">
-          <div className="flex flex-col items-center gap-5 text-center">
-            <h2 className="text-heading text-brand-text retro-glow-blue">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 rounded-xl overflow-hidden border border-white/10">
+            {CAPABILITIES.map((cap) => (
+              <div
+                key={cap.label}
+                className="flex flex-col gap-1.5 p-5 bg-[#11192C] hover:bg-white/[0.03] transition-colors duration-300"
+              >
+                <span className="text-xs font-black uppercase tracking-widest text-white/60">
+                  {cap.label}
+                </span>
+                <span className="text-sm text-white/35 leading-relaxed">
+                  {cap.detail}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-[#11192C] py-14 sm:py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-start gap-6 max-w-xl">
+            <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white leading-[0.92]">
               Want to work with us?
             </h2>
-            <p className="text-subhead max-w-lg">
+            <p className="text-white/50 text-sm leading-relaxed">
               Whether you&apos;re planning your first cartridge run or scaling
               up an existing release, we&apos;d love to hear about your project.
             </p>
@@ -162,8 +176,8 @@ export default function AboutPage() {
               Get in Touch
             </Button>
           </div>
-        </AnimateOnScroll>
-      </Section>
+        </div>
+      </section>
     </>
   );
 }
