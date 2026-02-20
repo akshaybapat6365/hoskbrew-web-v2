@@ -57,7 +57,7 @@ export const services: Service[] = [
     name: "Bonus Parts",
     tagline: "Offer something special to your customers",
     description:
-      "Custom controller or system shell parts add a unique offering to accompany your games. Have any ideas? always ask — we love to fulfill special requests!",
+      "Custom controller or system shell parts add a unique offering to accompany your games. Have any ideas, always ask - we love to fulfill special requests!",
     icon: "sparkles",
     features: [
       "Controller Shells & buttons",
